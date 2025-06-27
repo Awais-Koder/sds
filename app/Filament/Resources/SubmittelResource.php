@@ -97,7 +97,7 @@ class SubmittelResource extends Resource
                 Section::make('Shop Drawings Details')
                     ->schema([
                         Repeater::make('Shop Drawings')
-                        ->relationship('outgoings')
+                            ->relationship('outgoings')
                             ->schema([
                                 Forms\Components\Select::make('category_id')
                                     ->native(false)

@@ -11,10 +11,11 @@ class CreateSubmittel extends CreateRecord
 {
     protected static string $resource = SubmittelResource::class;
 
-    public $shopDrawingsTemp;
+    public $shopDrawingsTemp = [];
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
+        // dd($data);
         $this->shopDrawingsTemp = $data['Shop Drawings'] ?? [];
         if (isset($data['new_submittel'])) {
             $data['cycle'] = 0;
@@ -23,15 +24,18 @@ class CreateSubmittel extends CreateRecord
         $data['submitted_time'] = now();
         $data['status'] = 'submitted';
         unset($data['Shop Drawings']);
-        // dd($data);
         return $data;
     }
 
     protected function afterCreate()
     {
-        foreach ($this->shopDrawingsTemp as $drawing) {
-            $this->record->outgoings()->create($drawing);
-            $this->record->incomings()->create($drawing);
-        }
+        // dd($this->shopDrawingsTemp);
+        // foreach ($this->shopDrawingsTemp as $drawing) {
+        //     $this->record->outgoings()->create($drawing);
+        //     // Modify status only for incoming
+        //     $incomingData = array_merge($drawing, ['status' => 'under_review']);
+        //     dd($incomingData);
+        //     $this->record->incomings()->create($incomingData);
+        // }
     }
 }
