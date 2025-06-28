@@ -4,21 +4,27 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OutgoingResource\Pages;
 use App\Filament\Resources\OutgoingResource\RelationManagers;
+use App\Models\Incoming;
 use App\Models\Outgoing;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Support\Collection;
 
 class OutgoingResource extends Resource
 {
     protected static ?string $model = Outgoing::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-arrow-trending-up';
 
     public static function form(Form $form): Form
     {
@@ -37,10 +43,17 @@ class OutgoingResource extends Resource
                     ->preload(5)
                     ->required(),
                 Forms\Components\FileUpload::make('file')
+                    ->downloadable()
                     ->label('File Name'),
                 Forms\Components\TextInput::make('sds_no')
                     ->placeholder('Enter SDS Number')
                     ->maxLength(255),
+                Forms\Components\TextInput::make('no_of_copies')
+                    ->placeholder('No of Copies')
+                    ->numeric()
+                    ->default(1)
+                    ->minValue(0)
+                    ->label('No of Copies'),
                 Forms\Components\TextInput::make('dwg_no')
                     ->placeholder('Enter Drawing Number')
                     ->maxLength(255),
@@ -73,16 +86,17 @@ class OutgoingResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Submitted By')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('category.name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('submittel.ref_no')
                     ->label('Submittel Ref No')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('file')
-                    ->label('File Name')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('sds_no')
                     ->searchable(),
+
                 Tables\Columns\TextColumn::make('dwg_no')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
@@ -110,16 +124,110 @@ class OutgoingResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
+            ->filters(
+                [
+                    SelectFilter::make('submittel_id')
+                        ->label('Filter by Submittel')
+                        ->relationship('submittel', 'ref_no') // assuming Submittel has 'title' field
+                        ->searchable()
+                        ->preload()
+                        ->indicator('Submittel')
+                        ->placeholder('All Submittels'),
+                    SelectFilter::make('category_id')
+                        ->label('Filter by Category')
+                        ->relationship('category', 'name') // assuming Submittel has 'title' field
+                        ->searchable()
+                        ->preload()
+                        ->placeholder('All Categories'),
+                    SelectFilter::make('status')
+                        ->label('Filter by Status')
+                        ->options([
+                            'submitted' => 'Submitted',
+                            'revise_and_resubmit' => 'Revise and resubmit',
+                            'under_review'  => 'Under review',
+                        ])
+                        ->searchable()
+                        ->preload()
+                        ->placeholder('All Statuses'),
+                    SelectFilter::make('cycle')
+                        ->label('Filter by Cycle')
+                        ->options(Outgoing::query()
+                            ->select('cycle')
+                            ->distinct()
+                            ->pluck('cycle', 'cycle')
+                            ->toArray())
+                        ->searchable()
+                        ->preload()
+                        ->placeholder('All Statuses')
+                ],
+                layout: FiltersLayout::AboveContentCollapsible
+            )
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\Action::make('Pdf')
+                    ->color('success')
+                    ->url(fn(Outgoing $record) => Storage::disk('public')->url($record->file))
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->openUrlInNewTab(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\BulkAction::make('sendToActioner')
+                        ->label('Send To Actioner')
+                        ->icon('heroicon-o-paper-airplane')
+                        ->color('success')
+                        ->action(function (Collection $records) {
+                            $ids = $records->pluck('id')->toArray();
+
+                            $outgoings = Outgoing::whereIn('id', $ids)->get();
+
+                            $incomingData = $outgoings->map(function ($outgoing) {
+                                return collect($outgoing->toArray()) // 🔥 RETURN is required here
+                                    ->except(['id', 'file_location'])
+                                    ->merge([
+                                        'status' => 'under_review',
+                                        'created_at' => now(),
+                                        'updated_at' => now(),
+                                    ])
+                                    ->toArray();
+                            })->toArray();
+                            Incoming::insert($incomingData);
+                        })->after(function () {
+                            Notification::make('Files Dispatched')
+                                ->title('Files Dispatched')
+                                ->body('The selected files have been successfully dispatched to the actioner.')
+                                ->success()
+                                ->send();
+                        })
+                        ->requiresConfirmation()
+                        ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
+                        ->deselectRecordsAfterCompletion(),
+
+                    // Tables\Actions\BulkAction::make('sendToViewer')
+                    //     ->label('Send To Viewer')
+                    //     ->icon('heroicon-o-paper-airplane')
+                    //     ->color('success')
+                    //     ->action(function (Collection $records) {
+                    //         $ids = $records->pluck('id')->toArray();
+                    //         Outgoing::whereIn('id', $ids)->update([
+                    //             'file_location' => 'actioner',
+                    //         ]);
+                    //     })->after(function () {
+                    //         Notification::make('Files Sent')
+                    //             ->title('Files Dispatched')
+                    //             ->body('The selected files have been successfully dispatched to the actioner.')
+
+                    //             ->success()
+                    //             ->send();
+                    //     })
+                    //     ->requiresConfirmation()
+                    //     ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner']))
+                    //     ->deselectRecordsAfterCompletion(),
+
                 ]),
+
             ]);
     }
 
@@ -137,5 +245,16 @@ class OutgoingResource extends Resource
             'create' => Pages\CreateOutgoing::route('/create'),
             'edit' => Pages\EditOutgoing::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = static::getModel()::query();
+
+        if (Auth::check() && Auth::user()->hasRole('actioner')) {
+            $query->where('file_location', 'actioner'); // <-- adjust this string as needed
+        }
+
+        return $query;
     }
 }

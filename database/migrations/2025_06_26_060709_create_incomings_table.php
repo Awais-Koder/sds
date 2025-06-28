@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('sds_no')->nullable();
             $table->string('dwg_no')->nullable();
             $table->string('description')->nullable();
-            $table->enum('status', ['approved', 'approved_as_noted', 'revise_and_resubmit' , 'rejected'])->nullable();
+            $table->enum('status', ['approved', 'approved_as_noted', 'revise_and_resubmit', 'rejected'])->nullable();
             $table->unsignedBigInteger('cycle')->nullable();
             $table->timestamps();
         });

@@ -25,7 +25,7 @@ class SubmittelResource extends Resource
 {
     protected static ?string $model = Submittel::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-check-badge';
 
     public static function form(Form $form): Form
     {
@@ -116,6 +116,10 @@ class SubmittelResource extends Resource
                                     ->placeholder('Enter SDS Number')
                                     ->label('SDS Number')
                                     ->maxLength(255),
+                                Forms\Components\TextInput::make('no_of_copies')
+                                    ->placeholder('No of Copies')
+                                    ->numeric()
+                                    ->label('No of Copies'),
                                 Forms\Components\TextInput::make('dwg_no')
                                     ->placeholder('Enter Drawing Number')
                                     ->label('Drawing Number')
@@ -150,7 +154,7 @@ class SubmittelResource extends Resource
                             ])
                             ->addActionLabel('Add drawing')
                             ->cloneable()
-                            ->columns(6)
+                            ->columns(7)
                             ->collapsible()
                             ->defaultItems(1),
                     ])
@@ -164,6 +168,9 @@ class SubmittelResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Submitted By')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('ref_no')
@@ -203,8 +210,19 @@ class SubmittelResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->color('zinc'),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\Action::make('Pdf')
+                    ->color('success')
+                    ->url(fn(Submittel $record) => route('download.pdf', $record->id))
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->openUrlInNewTab(),
+                Tables\Actions\Action::make('Download Files')
+                    ->url(fn(Submittel $record) => route('download.submittel.files', $record->id))
+                    ->icon('heroicon-o-document')
+                    ->color('gray')
+                    ->openUrlInNewTab(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

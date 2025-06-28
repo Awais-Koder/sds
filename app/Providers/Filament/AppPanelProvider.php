@@ -30,6 +30,11 @@ class AppPanelProvider extends PanelProvider
             ->login()
             ->colors([
                 'primary' => Color::Amber,
+                'zinc' => Color::Zinc,
+                'neutral' => Color::Neutral,
+                'orange' => Color::Orange,
+                'lime' => Color::Lime,
+                'teal' => Color::Teal,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -38,8 +43,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                
             ])
             ->middleware([
                 EncryptCookies::class,

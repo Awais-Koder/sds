@@ -26,4 +26,8 @@ class Submittel extends Model
     {
         return $this->hasMany(Incoming::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class , 'submitted_by');
+    }
 }

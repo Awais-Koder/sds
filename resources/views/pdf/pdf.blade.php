@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang=en>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<title>SDS - Pdf</title>
+<meta name=description content="Lovable Generated Project">
+<meta name=author content=Lovable>
+<meta property=og:title content=style-it-with-tailwind>
+<meta property=og:description content="Lovable Generated Project">
+<meta property=og:type content=website>
+<meta property=og:image
+    content=https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b3c57538-2f2b-495b-bbb2-bae533d44190/id-preview-a9a4d073--716994e9-dd8e-45de-a259-fe0bc8a916a9.lovable.app-1750603745065.png>
+<meta name=twitter:card content=summary_large_image>
+<meta name=twitter:site content=@lovable_dev>
+<meta name=twitter:image
+    content=https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b3c57538-2f2b-495b-bbb2-bae533d44190/id-preview-a9a4d073--716994e9-dd8e-45de-a259-fe0bc8a916a9.lovable.app-1750603745065.png>
+<style>
+    *,
+    :before,
+    :after {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246/.5);
+        --tw-ring-offset-shadow: 0 0#0000;
+        --tw-ring-shadow: 0 0#0000;
+        --tw-shadow: 0 0#0000;
+        --tw-shadow-colored: 0 0#0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style:
+    }
+
+    *,
+    :before,
+    :after {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #e5e7eb
+    }
+
+    :before,
+    :after {
+        --tw-content: ""
+    }
+
+    html,
+    :host {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent
+    }
+
+    body {
+        margin: 0;
+        line-height: inherit
+    }
+
+    h3 {
+        font-size: inherit
+    }
+
+    a {
+        text-decoration: inherit
+    }
+
+    strong {
+        font-weight: bolder
+    }
+
+    table {
+        text-indent: 0;
+        border-color: inherit
+    }
+
+    button {
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0
+    }
+
+    button {
+        text-transform: none
+    }
+
+    button {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none
+    }
+
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+        height: auto
+    }
+
+    ::-webkit-search-decoration {
+        -webkit-appearance: none
+    }
+
+    ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+        margin: 0
+    }
+
+    ol {
+        list-style: none;
+        margin: 0
+    }
+
+    button {
+        cursor: pointer
+    }
+
+    :disabled {
+        cursor: default
+    }
+
+    img,
+    svg {
+        display: block;
+        vertical-align: middle
+    }
+
+    img {
+        max-width: 100%
+    }
+
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 222.2 84% 4.9%;
+        --radius: .5rem;
+        --sidebar-background: 0 0% 98%;
+        --sidebar-foreground: 240 5.3% 26.1%;
+        --sidebar-primary: 240 5.9% 10%;
+        --sidebar-primary-foreground: 0 0% 98%;
+        --sidebar-accent: 240 4.8% 95.9%;
+        --sidebar-accent-foreground: 240 5.9% 10%;
+        --sidebar-border: 220 13% 91%;
+        --sidebar-ring: 217.2 91.2% 59.8%
+    }
+
+    * {
+        border-color: hsl(var(--border))
+    }
+
+    body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground))
+    }
+
+    .fixed {
+        position: fixed
+    }
+
+    .top-0 {
+        top: 0
+    }
+
+    .z-\[100\] {
+        z-index: 100
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    .my-2 {
+        margin-top: .5rem;
+        margin-bottom: .5rem
+    }
+
+    .mb-1 {
+        margin-bottom: .25rem
+    }
+
+    .mb-2 {
+        margin-bottom: .5rem
+    }
+
+    .mb-4 {
+        margin-bottom: 1rem
+    }
+
+    .mb-1 {
+        margin-bottom: 1.5rem
+    }
+
+    .ml-auto {
+        margin-left: auto
+    }
+
+    .mr-1 {
+        margin-right: .25rem
+    }
+
+    .mt-1 {
+        margin-top: .25rem
+    }
+
+    .flex {
+        display: flex
+    }
+
+    .grid {
+        display: grid
+    }
+
+    .h-12 {
+        height: 3rem
+    }
+
+    .h-24 {
+        height: 6rem
+    }
+
+    .h-4 {
+        height: 1rem
+    }
+
+    .h-\[1px\] {
+        height: 1px
+    }
+
+    .max-h-screen {
+        max-height: 100vh
+    }
+
+    .min-h-screen {
+        min-height: 100vh
+    }
+
+    .w-12 {
+        width: 3rem
+    }
+
+    .w-24 {
+        width: 6rem
+    }
+
+    .w-32 {
+        width: 8rem
+    }
+
+    .w-4 {
+        width: 1rem
+    }
+
+    .w-full {
+        width: 100%
+    }
+
+    .max-w-4xl {
+        max-width: 56rem
+    }
+
+    .shrink-0 {
+        flex-shrink: 0
+    }
+
+    .border-collapse {
+        border-collapse: collapse
+    }
+
+    @keyframes pulse {
+        50% {
+            opacity: .5
+        }
+    }
+
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+
+    .flex-col {
+        flex-direction: column
+    }
+
+    .flex-col-reverse {
+        flex-direction: column-reverse
+    }
+
+    .items-center {
+        align-items: center
+    }
+
+    .justify-center {
+        justify-content: center
+    }
+
+    .justify-between {
+        justify-content: space-between
+    }
+
+    .gap-4 {
+        gap: 1rem
+    }
+
+    .gap-8 {
+        gap: 2rem
+    }
+
+    .space-x-1>:not([hidden])~:not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(.25rem*var(--tw-space-x-reverse));
+        margin-left: calc(.25rem*calc(1 - var(--tw-space-x-reverse)))
+    }
+
+    .space-x-2>:not([hidden])~:not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(.5rem*var(--tw-space-x-reverse));
+        margin-left: calc(.5rem*calc(1 - var(--tw-space-x-reverse)))
+    }
+
+    .space-x-4>:not([hidden])~:not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(1rem*var(--tw-space-x-reverse));
+        margin-left: calc(1rem*calc(1 - var(--tw-space-x-reverse)))
+    }
+
+    .space-y-2>:not([hidden])~:not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(.5rem*calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(.5rem*var(--tw-space-y-reverse))
+    }
+
+    .space-y-3>:not([hidden])~:not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(.75rem*calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(.75rem*var(--tw-space-y-reverse))
+    }
+
+    .space-y-4>:not([hidden])~:not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(1rem*calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(1rem*var(--tw-space-y-reverse))
+    }
+
+    .overflow-x-auto {
+        overflow-x: auto
+    }
+
+    .rounded-lg {
+        border-radius: var(--radius)
+    }
+
+    .rounded-sm {
+        border-radius: calc(var(--radius) - 4px)
+    }
+
+    .border {
+        border-width: 1px
+    }
+
+    .border-b {
+        border-bottom-width: 1px
+    }
+
+    .border-gray-300 {
+        --tw-border-opacity: 1;
+        border-color: rgb(209 213 219/var(--tw-border-opacity, 1))
+    }
+
+    .border-primary {
+        border-color: hsl(var(--primary))
+    }
+
+    .bg-black {
+        --tw-bg-opacity: 1;
+        background-color: rgb(0 0 0/var(--tw-bg-opacity, 1))
+    }
+
+    .bg-border {
+        background-color: hsl(var(--border))
+    }
+
+    .bg-card {
+        background-color: hsl(var(--card))
+    }
+
+    .bg-gray-100 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 244 246/var(--tw-bg-opacity, 1))
+    }
+
+    .bg-gray-50 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251/var(--tw-bg-opacity, 1))
+    }
+
+    .bg-white {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255/var(--tw-bg-opacity, 1))
+    }
+
+    .p-0 {
+        padding: 0
+    }
+
+    .p-2 {
+        padding: .5rem
+    }
+
+    .p-4 {
+        padding: 1rem
+    }
+
+    .p-6 {
+        padding: 1.5rem
+    }
+
+    .px-1 {
+        padding-left: .25rem;
+        padding-right: .25rem
+    }
+
+    .px-2 {
+        padding-left: .5rem;
+        padding-right: .5rem
+    }
+
+    .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem
+    }
+
+    .py-1 {
+        padding-top: .25rem;
+        padding-bottom: .25rem
+    }
+
+    .py-2 {
+        padding-top: .5rem;
+        padding-bottom: .5rem
+    }
+
+    .py-8 {
+        padding-top: 2rem;
+        padding-bottom: 2rem
+    }
+
+    .pb-2 {
+        padding-bottom: .5rem
+    }
+
+    .pt-0 {
+        padding-top: 0
+    }
+
+    .pt-4 {
+        padding-top: 1rem
+    }
+
+    .text-center {
+        text-align: center
+    }
+
+    .text-right {
+        text-align: right
+    }
+
+    .text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem
+    }
+
+    .text-sm {
+        font-size: .875rem;
+        line-height: 1.25rem
+    }
+
+    .text-xs {
+        font-size: .75rem;
+        line-height: 1rem
+    }
+
+    .font-bold {
+        font-weight: 700
+    }
+
+    .font-medium {
+        font-weight: 500
+    }
+
+    .text-black {
+        --tw-text-opacity: 1;
+        color: rgb(0 0 0/var(--tw-text-opacity, 1))
+    }
+
+    .text-blue-600 {
+        --tw-text-opacity: 1;
+        color: rgb(37 99 235/var(--tw-text-opacity, 1))
+    }
+
+    .text-card-foreground {
+        color: hsl(var(--card-foreground))
+    }
+
+    .text-white {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255/var(--tw-text-opacity, 1))
+    }
+
+    .shadow-sm {
+        --tw-shadow: 0 1px 2px 0 rgb(0 0 0/.05);
+        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0#0000), var(--tw-ring-shadow, 0 0#0000), var(--tw-shadow)
+    }
+
+    .ring-offset-background {
+        --tw-ring-offset-color: hsl(var(--background))
+    }
+
+    @keyframes enter {
+        0% {
+            opacity: var(--tw-enter-opacity, 1);
+            transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0) scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0))
+        }
+    }
+
+    @keyframes exit {
+        to {
+            opacity: var(--tw-exit-opacity, 1);
+            transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0))
+        }
+    }
+
+    .focus-visible\:outline-none:focus-visible {
+        outline: 2px solid transparent;
+        outline-offset: 2px
+    }
+
+    .focus-visible\:ring-2:focus-visible {
+        --tw-ring-offset-shadow: var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+        --tw-ring-shadow: var(--tw-ring-inset)0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0#0000)
+    }
+
+    .focus-visible\:ring-ring:focus-visible {
+        --tw-ring-color: hsl(var(--ring))
+    }
+
+    .focus-visible\:ring-offset-2:focus-visible {
+        --tw-ring-offset-width: 2px
+    }
+
+    .disabled\:cursor-not-allowed:disabled {
+        cursor: not-allowed
+    }
+
+    .disabled\:opacity-50:disabled {
+        opacity: .5
+    }
+
+    @keyframes accordion-up {
+        0% {
+            height: var(--radix-accordion-content-height)
+        }
+
+        to {
+            height: 0
+        }
+    }
+
+    @keyframes accordion-down {
+        0% {
+            height: 0
+        }
+
+        to {
+            height: var(--radix-accordion-content-height)
+        }
+    }
+
+    @media (min-width:640px) {
+        .sm\:bottom-0 {
+            bottom: 0
+        }
+
+        .sm\:right-0 {
+            right: 0
+        }
+
+        .sm\:top-auto {
+            top: auto
+        }
+
+        .sm\:flex-col {
+            flex-direction: column
+        }
+    }
+
+    @media (min-width:768px) {
+        .md\:max-w-\[420px\] {
+            max-width: 420px
+        }
+    }
+</style>
+<style>
+    :where(html[dir="ltr"]),
+    :where([data-sonner-toaster][dir="ltr"]) {
+        --toast-icon-margin-start: -3px;
+        --toast-icon-margin-end: 4px;
+        --toast-svg-margin-start: -1px;
+        --toast-svg-margin-end: 0px;
+        --toast-button-margin-start: auto;
+        --toast-button-margin-end: 0;
+        --toast-close-button-start: 0;
+        --toast-close-button-end: unset;
+        --toast-close-button-transform: translate(-35%, -35%)
+    }
+
+    :where(html[dir="rtl"]),
+    :where([data-sonner-toaster][dir="rtl"]) {
+        --toast-icon-margin-start: 4px;
+        --toast-icon-margin-end: -3px;
+        --toast-svg-margin-start: 0px;
+        --toast-svg-margin-end: -1px;
+        --toast-button-margin-start: 0;
+        --toast-button-margin-end: auto;
+        --toast-close-button-start: unset;
+        --toast-close-button-end: 0;
+        --toast-close-button-transform: translate(35%, -35%)
+    }
+
+    :where([data-sonner-toaster]) {
+        position: fixed;
+        width: var(--width);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        --gray1: hsl(0, 0%, 99%);
+        --gray2: hsl(0, 0%, 97.3%);
+        --gray3: hsl(0, 0%, 95.1%);
+        --gray4: hsl(0, 0%, 93%);
+        --gray5: hsl(0, 0%, 90.9%);
+        --gray6: hsl(0, 0%, 88.7%);
+        --gray7: hsl(0, 0%, 85.8%);
+        --gray8: hsl(0, 0%, 78%);
+        --gray9: hsl(0, 0%, 56.1%);
+        --gray10: hsl(0, 0%, 52.3%);
+        --gray11: hsl(0, 0%, 43.5%);
+        --gray12: hsl(0, 0%, 9%);
+        --border-radius: 8px;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        outline: none;
+        z-index: 999999999
+    }
+
+    :where([data-sonner-toaster][data-x-position="right"]) {
+        right: max(var(--offset), env(safe-area-inset-right))
+    }
+
+    :where([data-sonner-toaster][data-x-position="left"]) {
+        left: max(var(--offset), env(safe-area-inset-left))
+    }
+
+    :where([data-sonner-toaster][data-x-position="center"]) {
+        left: 50%;
+        transform: translate(-50%)
+    }
+
+    :where([data-sonner-toaster][data-y-position="top"]) {
+        top: max(var(--offset), env(safe-area-inset-top))
+    }
+
+    :where([data-sonner-toaster][data-y-position="bottom"]) {
+        bottom: max(var(--offset), env(safe-area-inset-bottom))
+    }
+
+    :where([data-sonner-toast]) {
+        --y: translateY(100%);
+        --lift-amount: calc(var(--lift)*var(--gap));
+        z-index: var(--z-index);
+        position: absolute;
+        opacity: 0;
+        transform: var(--y);
+        filter: blur(0);
+        touch-action: none;
+        transition: transform .4s, opacity .4s, height .4s, box-shadow .2s;
+        box-sizing: border-box;
+        outline: none;
+        overflow-wrap: anywhere
+    }
+
+    :where([data-sonner-toast][data-styled="true"]) {
+        padding: 16px;
+        background: var(--normal-bg);
+        border: 1px solid var(--normal-border);
+        color: var(--normal-text);
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 12px #0000001a;
+        width: var(--width);
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 6px
+    }
+
+    :where([data-sonner-toast]:focus-visible) {
+        box-shadow: 0 4px 12px #0000001a, 0 0 0 2px #0003
+    }
+
+    :where([data-sonner-toast][data-y-position="top"]) {
+        top: 0;
+        --y: translateY(-100%);
+        --lift: 1;
+        --lift-amount: calc(1*var(--gap))
+    }
+
+    :where([data-sonner-toast][data-y-position="bottom"]) {
+        bottom: 0;
+        --y: translateY(100%);
+        --lift: -1;
+        --lift-amount: calc(var(--lift)*var(--gap))
+    }
+
+    :where([data-sonner-toast]) :where([data-description]) {
+        font-weight: 400;
+        line-height: 1.4;
+        color: inherit
+    }
+
+    :where([data-sonner-toast]) :where([data-title]) {
+        font-weight: 500;
+        line-height: 1.5;
+        color: inherit
+    }
+
+    :where([data-sonner-toast]) :where([data-icon]) {
+        display: flex;
+        height: 16px;
+        width: 16px;
+        position: relative;
+        justify-content: flex-start;
+        align-items: center;
+        flex-shrink: 0;
+        margin-left: var(--toast-icon-margin-start);
+        margin-right: var(--toast-icon-margin-end)
+    }
+
+    :where([data-sonner-toast][data-promise="true"]) :where([data-icon])>svg {
+        opacity: 0;
+        transform: scale(.8);
+        transform-origin: center;
+        animation: sonner-fade-in .3s ease forwards
+    }
+
+    :where([data-sonner-toast]) :where([data-icon])>* {
+        flex-shrink: 0
+    }
+
+    :where([data-sonner-toast]) :where([data-icon]) svg {
+        margin-left: var(--toast-svg-margin-start);
+        margin-right: var(--toast-svg-margin-end)
+    }
+
+    :where([data-sonner-toast]) :where([data-content]) {
+        display: flex;
+        flex-direction: column;
+        gap: 2px
+    }
+
+    :where([data-sonner-toast]) :where([data-button]):focus-visible {
+        box-shadow: 0 0 0 2px #0006
+    }
+
+    :where([data-sonner-toast]) :where([data-button]):first-of-type {
+        margin-left: var(--toast-button-margin-start);
+        margin-right: var(--toast-button-margin-end)
+    }
+
+    :where([data-sonner-toast]) :where([data-cancel]) {
+        color: var(--normal-text);
+        background: rgba(0, 0, 0, .08)
+    }
+
+    :where([data-sonner-toast][data-theme="dark"]) :where([data-cancel]) {
+        background: rgba(255, 255, 255, .3)
+    }
+
+    :where([data-sonner-toast]) :where([data-close-button]) {
+        position: absolute;
+        left: var(--toast-close-button-start);
+        right: var(--toast-close-button-end);
+        top: 0;
+        height: 20px;
+        width: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        background: var(--gray1);
+        color: var(--gray12);
+        border: 1px solid var(--gray4);
+        transform: var(--toast-close-button-transform);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1;
+        transition: opacity .1s, background .2s, border-color .2s
+    }
+
+    :where([data-sonner-toast]) :where([data-close-button]):focus-visible {
+        box-shadow: 0 4px 12px #0000001a, 0 0 0 2px #0003
+    }
+
+    :where([data-sonner-toast]) :where([data-disabled="true"]) {
+        cursor: not-allowed
+    }
+
+    :where([data-sonner-toast]):hover :where([data-close-button]):hover {
+        background: var(--gray2);
+        border-color: var(--gray5)
+    }
+
+    :where([data-sonner-toast][data-swiping="true"]):before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100%;
+        z-index: -1
+    }
+
+    :where([data-sonner-toast][data-y-position="top"][data-swiping="true"]):before {
+        bottom: 50%;
+        transform: scaleY(3) translateY(50%)
+    }
+
+    :where([data-sonner-toast][data-y-position="bottom"][data-swiping="true"]):before {
+        top: 50%;
+        transform: scaleY(3) translateY(-50%)
+    }
+
+    :where([data-sonner-toast][data-swiping="false"][data-removed="true"]):before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transform: scaleY(2)
+    }
+
+    :where([data-sonner-toast]):after {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: calc(var(--gap) + 1px);
+        bottom: 100%;
+        width: 100%
+    }
+
+    :where([data-sonner-toast][data-mounted="true"]) {
+        --y: translateY(0);
+        opacity: 1
+    }
+
+    :where([data-sonner-toast][data-expanded="false"][data-front="false"]) {
+        --scale: var(--toasts-before)*.05 + 1;
+        --y: translateY(calc(var(--lift-amount)*var(--toasts-before))) scale(calc(-1*var(--scale)));
+        height: var(--front-toast-height)
+    }
+
+    :where([data-sonner-toast])>* {
+        transition: opacity .4s
+    }
+
+    :where([data-sonner-toast][data-expanded="false"][data-front="false"][data-styled="true"])>* {
+        opacity: 0
+    }
+
+    :where([data-sonner-toast][data-visible="false"]) {
+        opacity: 0;
+        pointer-events: none
+    }
+
+    :where([data-sonner-toast][data-mounted="true"][data-expanded="true"]) {
+        --y: translateY(calc(var(--lift)*var(--offset)));
+        height: var(--initial-height)
+    }
+
+    :where([data-sonner-toast][data-removed="true"][data-front="true"][data-swipe-out="false"]) {
+        --y: translateY(calc(var(--lift)*-100%));
+        opacity: 0
+    }
+
+    :where([data-sonner-toast][data-removed="true"][data-front="false"][data-swipe-out="false"][data-expanded="true"]) {
+        --y: translateY(calc(var(--lift)*var(--offset) + var(--lift)*-100%));
+        opacity: 0
+    }
+
+    :where([data-sonner-toast][data-removed="true"][data-front="false"][data-swipe-out="false"][data-expanded="false"]) {
+        --y: translateY(40%);
+        opacity: 0;
+        transition: transform .5s, opacity .2s
+    }
+
+    :where([data-sonner-toast][data-removed="true"][data-front="false"]):before {
+        height: calc(var(--initial-height) + 20%)
+    }
+
+    @keyframes swipe-out {
+        0% {
+            transform: translateY(calc(var(--lift)*var(--offset) + var(--swipe-amount)));
+            opacity: 1
+        }
+
+        to {
+            transform: translateY(calc(var(--lift)*var(--offset) + var(--swipe-amount) + var(--lift)*-100%));
+            opacity: 0
+        }
+    }
+
+    @media (max-width:600px) {}
+
+    @keyframes sonner-fade-in {
+        0% {
+            opacity: 0;
+            transform: scale(.8)
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1)
+        }
+    }
+
+    @keyframes sonner-fade-out {
+        0% {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        to {
+            opacity: 0;
+            transform: scale(.8)
+        }
+    }
+
+    @keyframes sonner-spin {
+        0% {
+            opacity: 1
+        }
+
+        to {
+            opacity: .15
+        }
+    }
+
+    @media (prefers-reduced-motion) {}
+</style>
+<meta name=referrer content=no-referrer>
+
+
+<meta http-equiv=content-security-policy
+    content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;">
+
+<style>
+    @media print {
+        @page {
+            margin: 0;
+        }
+
+        body {
+            margin: 0cm;
+            /* print-color-adjust: exact;
+            -webkit-print-color-adjust: exact; */
+        }
+    }
+</style>
+</head>
+
+<body cz-shortcut-listen=true>
+    <div id=root>
+        <div role=region aria-label="Notifications (F8)" tabindex=-1 style=pointer-events:none>
+            <ol tabindex=-1 data-lov-id=src/components/ui/toaster.tsx:30:6 data-lov-name=ToastViewport
+                data-component-path=src/components/ui/toaster.tsx data-component-line=30 data-component-file=toaster.tsx
+                data-component-name=ToastViewport data-component-content=%7B%7D
+                class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
+            </ol>
+        </div>
+        <div data-lov-id=src/pages/Index.tsx:6:4 data-lov-name=div data-component-path=src/pages/Index.tsx
+            data-component-line=6 data-component-file=Index.tsx data-component-name=div
+            data-component-content=%7B%22className%22%3A%22min-h-screen%20bg-gray-50%20py-8%22%7D
+            class="min-h-screen bg-gray-50 py-1">
+            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:9:4 data-lov-name=div
+                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=9
+                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                data-component-content=%7B%22className%22%3A%22max-w-4xl%20mx-auto%20p-6%20bg-white%22%7D
+                class="max-w-4xl mx-auto p-0 px-1 bg-white">
+                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:11:6 data-lov-name=div
+                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=11
+                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                    data-component-content=%7B%22className%22%3A%22grid%20grid-cols-3%20gap-4%20mb-1%22%7D
+                    class="grid grid-cols-3 gap-4" style="margin-bottom: 5px">
+                    {{-- <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:13:8 data-lov-name=Card
+                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=13
+                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=Card
+                        data-component-content=%7B%7D class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:14:10 data-lov-name=CardHeader
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=14
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardHeader
+                            data-component-content=%7B%22className%22%3A%22pb-2%22%7D
+                            class="flex flex-col p-0 pb-0" style="height: 20px">
+                            <h3 data-lov-id=src/components/ShopDrawingSubmittal.tsx:15:12 data-lov-name=h3
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=15
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=h3
+                                data-component-content=%7B%22text%22%3A%22CLIENT%22%2C%22className%22%3A%22text-sm%20font-bold%20text-center%22%7D
+                                class="text-sm font-bold text-center">CLIENT</h3>
+                        </div>
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:17:10 data-lov-name=CardContent
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=17
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardContent
+                            data-component-content=%7B%22className%22%3A%22text-center%22%7D
+                            class="p-0 pt-0 text-center">
+                            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:18:12 data-lov-name=div
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=18
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                data-component-content=%7B%22className%22%3A%22flex%20items-center%20justify-center%20mb-2%22%7D
+                                class="flex items-center justify-center mb-2">
+                                <img data-lov-id=src/components/ShopDrawingSubmittal.tsx:19:14 data-lov-name=img
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=19
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=img
+                                    data-component-content=%7B%22className%22%3A%22h-12%20w-12%22%7D
+                                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjEyMDAiIGZpbGw9Im5vbmUiPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjEyMDAiIGZpbGw9IiNFQUVBRUEiIHJ4PSIzIi8+PGcgb3BhY2l0eT0iLjUiPjxnIG9wYWNpdHk9Ii41Ij48cGF0aCBmaWxsPSIjRkFGQUZBIiBkPSJNNjAwLjcwOSA3MzYuNWMtNzUuNDU0IDAtMTM2LjYyMS02MS4xNjctMTM2LjYyMS0xMzYuNjIgMC03NS40NTQgNjEuMTY3LTEzNi42MjEgMTM2LjYyMS0xMzYuNjIxIDc1LjQ1MyAwIDEzNi42MiA2MS4xNjcgMTM2LjYyIDEzNi42MjEgMCA3NS40NTMtNjEuMTY3IDEzNi42Mi0xMzYuNjIgMTM2LjYyWiIvPjxwYXRoIHN0cm9rZT0iI0M5QzlDOSIgc3Ryb2tlLXdpZHRoPSIyLjQxOCIgZD0iTTYwMC43MDkgNzM2LjVjLTc1LjQ1NCAwLTEzNi42MjEtNjEuMTY3LTEzNi42MjEtMTM2LjYyIDAtNzUuNDU0IDYxLjE2Ny0xMzYuNjIxIDEzNi42MjEtMTM2LjYyMSA3NS40NTMgMCAxMzYuNjIgNjEuMTY3IDEzNi42MiAxMzYuNjIxIDAgNzUuNDUzLTYxLjE2NyAxMzYuNjItMTM2LjYyIDEzNi42MloiLz48L2c+PHBhdGggc3Ryb2tlPSJ1cmwoI2EpIiBzdHJva2Utd2lkdGg9IjIuNDE4IiBkPSJNMC0xLjIwOWg1NTMuNTgxIiB0cmFuc2Zvcm09InNjYWxlKDEgLTEpIHJvdGF0ZSg0NSAxMTYzLjExIDkxLjE2NSkiLz48cGF0aCBzdHJva2U9InVybCgjYikiIHN0cm9rZS13aWR0aD0iMi40MTgiIGQ9Ik00MDQuODQ2IDU5OC42NzFoMzkxLjcyNiIvPjxwYXRoIHN0cm9rZT0idXJsKCNjKSIgc3Ryb2tlLXdpZHRoPSIyLjQxOCIgZD0iTTU5OS41IDc5NS43NDJWNDA0LjAxNyIvPjxwYXRoIHN0cm9rZT0idXJsKCNkKSIgc3Ryb2tlLXdpZHRoPSIyLjQxOCIgZD0ibTc5NS43MTcgNzk2LjU5Ny0zOTEuNDQxLTM5MS40NCIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik02MDAuNzA5IDY1Ni43MDRjLTMxLjM4NCAwLTU2LjgyNS0yNS40NDEtNTYuODI1LTU2LjgyNCAwLTMxLjM4NCAyNS40NDEtNTYuODI1IDU2LjgyNS01Ni44MjUgMzEuMzgzIDAgNTYuODI0IDI1LjQ0MSA1Ni44MjQgNTYuODI1IDAgMzEuMzgzLTI1LjQ0MSA1Ni44MjQtNTYuODI0IDU2LjgyNFoiLz48ZyBjbGlwLXBhdGg9InVybCgjZSkiPjxwYXRoIGZpbGw9IiM2NjYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTYxNi40MjYgNTg2LjU4aC0zMS40MzR2MTYuMTc2bDMuNTUzLTMuNTU0LjUzMS0uNTMxaDkuMDY4bC4wNzQtLjA3NCA4LjQ2My04LjQ2M2gyLjU2NWw3LjE4IDcuMTgxVjU4Ni41OFptLTE1LjcxNSAxNC42NTQgMy42OTggMy42OTkgMS4yODMgMS4yODItMi41NjUgMi41NjUtMS4yODItMS4yODMtNS4yLTUuMTk5aC02LjA2NmwtNS41MTQgNS41MTQtLjA3My4wNzN2Mi44NzZhMi40MTggMi40MTggMCAwIDAgMi40MTggMi40MThoMjYuNTk4YTIuNDE4IDIuNDE4IDAgMCAwIDIuNDE4LTIuNDE4di04LjMxN2wtOC40NjMtOC40NjMtNy4xODEgNy4xODEtLjA3MS4wNzJabS0xOS4zNDcgNS40NDJ2NC4wODVhNi4wNDUgNi4wNDUgMCAwIDAgNi4wNDYgNi4wNDVoMjYuNTk4YTYuMDQ0IDYuMDQ0IDAgMCAwIDYuMDQ1LTYuMDQ1di03LjEwOGwxLjM1Ni0xLjM1NS0xLjI4Mi0xLjI4My0uMDc0LS4wNzN2LTE3Ljk4OWgtMzguNjg5djIzLjQzbC0uMTQ2LjE0Ni4xNDYuMTQ3WiIgY2xpcC1ydWxlPSJldmVub2RkIi8+PC9nPjxwYXRoIHN0cm9rZT0iI0M5QzlDOSIgc3Ryb2tlLXdpZHRoPSIyLjQxOCIgZD0iTTYwMC43MDkgNjU2LjcwNGMtMzEuMzg0IDAtNTYuODI1LTI1LjQ0MS01Ni44MjUtNTYuODI0IDAtMzEuMzg0IDI1LjQ0MS01Ni44MjUgNTYuODI1LTU2LjgyNSAzMS4zODMgMCA1Ni44MjQgMjUuNDQxIDU2LjgyNCA1Ni44MjUgMCAzMS4zODMtMjUuNDQxIDU2LjgyNC01Ni44MjQgNTYuODI0WiIvPjwvZz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1NTQuMDYxIiB4Mj0iLS40OCIgeTE9Ii4wODMiIHkyPSIuMDg3IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agc3RvcC1jb2xvcj0iI0M5QzlDOSIgc3RvcC1vcGFjaXR5PSIwIi8+PHN0b3Agb2Zmc2V0PSIuMjA4IiBzdG9wLWNvbG9yPSIjQzlDOUM5Ii8+PHN0b3Agb2Zmc2V0PSIuNzkyIiBzdG9wLWNvbG9yPSIjQzlDOUM5Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjQzlDOUM5IiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDE9Ijc5Ni45MTIiIHgyPSI0MDQuNTA3IiB5MT0iNTk5Ljk2MyIgeTI9IjU5OS45NjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjQzlDOUM5IiBzdG9wLW9wYWNpdHk9IjAiLz48c3RvcCBvZmZzZXQ9Ii4yMDgiIHN0b3AtY29sb3I9IiNDOUM5QzkiLz48c3RvcCBvZmZzZXQ9Ii43OTIiIHN0b3AtY29sb3I9IiNDOUM5QzkiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNDOUM5QzkiIHN0b3Atb3BhY2l0eT0iMCIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJjIiB4MT0iNjAwLjc5MiIgeDI9IjYwMC43OTQiIHkxPSI0MDMuNjc3IiB5Mj0iNzk2LjA4MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiNDOUM5QzkiIHN0b3Atb3BhY2l0eT0iMCIvPjxzdG9wIG9mZnNldD0iLjIwOCIgc3RvcC1jb2xvcj0iI0M5QzlDOSIvPjxzdG9wIG9mZnNldD0iLjc5MiIgc3RvcC1jb2xvcj0iI0M5QzlDOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0M5QzlDOSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImQiIHgxPSI0MDQuODUiIHgyPSI3OTYuOTcyIiB5MT0iNDAzLjkwMyIgeTI9Ijc5Ni4wMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiNDOUM5QzkiIHN0b3Atb3BhY2l0eT0iMCIvPjxzdG9wIG9mZnNldD0iLjIwOCIgc3RvcC1jb2xvcj0iI0M5QzlDOSIvPjxzdG9wIG9mZnNldD0iLjc5MiIgc3RvcC1jb2xvcj0iI0M5QzlDOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0M5QzlDOSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9ImUiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01ODEuMzY0IDU4MC41MzVoMzguNjg5djM4LjY4OWgtMzguNjg5eiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg=="
+                                    alt="Client Logo" class="h-12 w-12">
+                            </div>
+                            <p data-lov-id=src/components/ShopDrawingSubmittal.tsx:21:12 data-lov-name=p
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=21
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=p
+                                data-component-content=%7B%22text%22%3A%22MUBADARAT%22%2C%22className%22%3A%22text-xs%22%7D
+                                class=text-xs>MUBADARAT
+                            <p data-lov-id=src/components/ShopDrawingSubmittal.tsx:22:12 data-lov-name=p
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=22
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=p
+                                data-component-content=%7B%22text%22%3A%22Development%20Company%22%2C%22className%22%3A%22text-xs%22%7D
+                                class=text-xs>Development Company</p>
+                        </div>
+                    </div>
+                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:27:8 data-lov-name=Card
+                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=27
+                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=Card
+                        data-component-content=%7B%7D class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:28:10 data-lov-name=CardHeader
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=28
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardHeader
+                            data-component-content=%7B%22className%22%3A%22pb-2%22%7D
+                            class="flex flex-col space-y-1.5 p-6 pb-2">
+                            <h3 data-lov-id=src/components/ShopDrawingSubmittal.tsx:29:12 data-lov-name=h3
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=29
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=h3
+                                data-component-content=%7B%22text%22%3A%22CONSULTANT%22%2C%22className%22%3A%22text-sm%20font-bold%20text-center%22%7D
+                                class="text-sm font-bold text-center">CONSULTANT</h3>
+                        </div>
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:31:10 data-lov-name=CardContent
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=31
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardContent
+                            data-component-content=%7B%22className%22%3A%22text-center%22%7D
+                            class="p-6 pt-0 text-center">
+                            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:32:12 data-lov-name=div
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=32
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                data-component-content=%7B%22text%22%3A%22e11%22%2C%22className%22%3A%22text-blue-600%20font-bold%20text-lg%20mb-1%22%7D
+                                class="text-blue-600 font-bold text-lg mb-1">e11</div>
+                            <p data-lov-id=src/components/ShopDrawingSubmittal.tsx:33:12 data-lov-name=p
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=33
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=p
+                                data-component-content=%7B%22text%22%3A%22Engineering%20Consultancy%22%2C%22className%22%3A%22text-xs%22%7D
+                                class=text-xs>Engineering Consultancy
+                            <p data-lov-id=src/components/ShopDrawingSubmittal.tsx:34:12 data-lov-name=p
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=34
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=p
+                                data-component-content=%7B%22text%22%3A%22%26%20Project%20Management%22%2C%22className%22%3A%22text-xs%22%7D
+                                class=text-xs>&amp; Project Management</p>
+                        </div>
+                    </div>
+                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:39:8 data-lov-name=Card
+                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=39
+                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=Card
+                        data-component-content=%7B%7D class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:40:10 data-lov-name=CardHeader
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=40
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardHeader
+                            data-component-content=%7B%22className%22%3A%22pb-2%22%7D
+                            class="flex flex-col space-y-1.5 p-6 pb-2">
+                            <h3 data-lov-id=src/components/ShopDrawingSubmittal.tsx:41:12 data-lov-name=h3
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=41
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=h3
+                                data-component-content=%7B%22text%22%3A%22CONTRACTOR%22%2C%22className%22%3A%22text-sm%20font-bold%20text-center%22%7D
+                                class="text-sm font-bold text-center">CONTRACTOR</h3>
+                        </div>
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:43:10 data-lov-name=CardContent
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=43
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardContent
+                            data-component-content=%7B%22className%22%3A%22text-center%22%7D
+                            class="p-6 pt-0 text-center">
+                            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:44:12 data-lov-name=div
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=44
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                data-component-content=%7B%22className%22%3A%22flex%20items-center%20justify-center%22%7D
+                                class="flex items-center justify-center"><span
+                                    data-lov-id=src/components/ShopDrawingSubmittal.tsx:45:14 data-lov-name=span
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=45
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=span
+                                    data-component-content=%7B%22text%22%3A%22%2F%2F%22%2C%22className%22%3A%22text-black%20font-bold%20mr-1%22%7D
+                                    class="text-black font-bold mr-1">//</span><span
+                                    data-lov-id=src/components/ShopDrawingSubmittal.tsx:46:14 data-lov-name=span
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=46
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=span
+                                    data-component-content=%7B%22text%22%3A%22National%22%2C%22className%22%3A%22bg-black%20text-white%20px-1%20text-sm%20font-bold%22%7D
+                                    class="bg-black text-white px-1 text-sm font-bold">National</span></div>
+                        </div>
+                    </div> --}}
+                </div>
+                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:53:6 data-lov-name=Card
+                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=53
+                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=Card
+                    data-component-content=%7B%22className%22%3A%22mb-1%22%7D
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm mb-0" style="margin-bottom: 5px">
+                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:54:8 data-lov-name=CardContent
+                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=54
+                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardContent
+                        data-component-content=%7B%22className%22%3A%22pt-4%22%7D class="px-2 pt-1">
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:55:10 data-lov-name=div
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=55
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                            data-component-content=%7B%22className%22%3A%22text-center%20mb-4%22%7D
+                            class="text-center" style="margin-bottom: 5px">
+                            <h2 data-lov-id=src/components/ShopDrawingSubmittal.tsx:56:12 data-lov-name=h2
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=56
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=h2
+                                data-component-content=%7B%22text%22%3A%22PROJECT%20%3A%201474-C%20-%20CONSTRUCTION%20OF%20THE%20NEW%20ROAD%20TO%20CONNECT%20THE%20CITY%20OF%20DIBBA%20AL-HISN%20IN%20THE%20%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20EMIRATE%20OF%20SHARJAH%20AND%20THE%20EXTENSION%20OF%20THE%20FEDERAL%20ROAD%20E87%20FROM%20THE%20CEMENT%20R%2FA%20TO%20THE%20%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20FEDERAL%20ROAD%20E99%20IN%20THE%20AL%20RAHEEB%20AREA%22%2C%22className%22%3A%22font-bold%20text-sm%22%7D
+                                class="font-bold text-sm">PROJECT : {{$project->name}}</h2>
+                        </div>
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:63:10 data-lov-name=div
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=63
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                            data-component-content=%7B%22className%22%3A%22grid%20grid-cols-2%20gap-8%22%7D
+                            class="grid grid-cols-2 gap-8">
+                            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:64:12 data-lov-name=div
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=64
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                data-component-content=%7B%22className%22%3A%22space-y-2%22%7D class=space-y-2>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:65:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=65
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
+                                    class="flex items-center space-x-2">
+                                    <input type=checkbox role=checkbox aria-checked=false data-state=unchecked value=on
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:66:16 data-lov-name=Checkbox
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=66 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=Checkbox data-component-content=%7B%7D
+                                        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed "
+                                        id=new-submittal @checked($project->new_submittel)>
+                                    <label data-lov-id=src/components/ShopDrawingSubmittal.tsx:67:16 data-lov-name=label
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=67 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=label
+                                        data-component-content=%7B%22text%22%3A%22NEW%20SUBMITTAL%22%2C%22className%22%3A%22text-sm%22%7D
+                                        for=new-submittal class=text-sm>NEW SUBMITTAL
+                                    </label>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:69:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=69
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
+                                    class="flex items-center space-x-2">
+                                    <input type=checkbox role=checkbox aria-checked=false data-state=unchecked value=on
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:70:16 data-lov-name=Checkbox
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=70 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=Checkbox data-component-content=%7B%7D
+                                        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                                        id=re-submittal @checked($project->re_submittel)>
+                                    <label data-lov-id=src/components/ShopDrawingSubmittal.tsx:71:16 data-lov-name=label
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=71 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=label
+                                        data-component-content=%7B%22text%22%3A%22RE-SUBMITTAL%22%2C%22className%22%3A%22text-sm%22%7D
+                                        for=re-submittal class=text-sm>RE-SUBMITTAL</label>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:73:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=73
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
+                                    class="flex items-center space-x-2">
+                                    <input type=checkbox role=checkbox aria-checked=false data-state=unchecked value=on
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:74:16 data-lov-name=Checkbox
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=74 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=Checkbox data-component-content=%7B%7D
+                                        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                                        id=additional-copies @checked($project->additional_copies)>
+                                    <label data-lov-id=src/components/ShopDrawingSubmittal.tsx:75:16 data-lov-name=label
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=75 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=label
+                                        data-component-content=%7B%22text%22%3A%22ADDITIONAL%20COPIES%22%2C%22className%22%3A%22text-sm%22%7D
+                                        for=additional-copies class=text-sm>ADDITIONAL COPIES</label>
+                                </div>
+                            </div>
+                            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:79:12 data-lov-name=div
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=79
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                data-component-content=%7B%22className%22%3A%22space-y-2%22%7D class=space-y-2>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:80:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=80
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20justify-between%22%7D
+                                    class="flex justify-between">
+                                    <span data-lov-id=src/components/ShopDrawingSubmittal.tsx:81:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=81 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22REF%20No.%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">REF No:</span><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:82:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=82 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22NCTC-1474C-P9-SDS-CIV-016-1%22%2C%22className%22%3A%22text-sm%22%7D
+                                        class=text-sm>{{$project->ref_no}}</span>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:84:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=84
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20justify-between%22%7D
+                                    class="flex justify-between"><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:85:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=85 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22DATE%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">DATE:</span><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:86:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=86 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%2212-06-2025%22%2C%22className%22%3A%22text-sm%22%7D
+                                        class=text-sm>{{Carbon\Carbon::parse($project->date)->format('d-m-y')}}</span>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:88:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=88
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20justify-between%20items-center%22%7D
+                                    class="flex justify-between items-center"><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:89:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=89 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22Soft%20Copy%20attached%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">Soft Copy attached:</span>
+                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:90:16 data-lov-name=div
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=90 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=div
+                                        data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-4%22%7D
+                                        class="flex items-center space-x-4">
+                                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:91:18 data-lov-name=div
+                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                            data-component-line=91 data-component-file=ShopDrawingSubmittal.tsx
+                                            data-component-name=div
+                                            data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-1%22%7D
+                                            class="flex items-center space-x-1">
+                                            <span data-lov-id=src/components/ShopDrawingSubmittal.tsx:92:20
+                                                data-lov-name=span
+                                                data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                                data-component-line=92 data-component-file=ShopDrawingSubmittal.tsx
+                                                data-component-name=span
+                                                data-component-content=%7B%22text%22%3A%22YES%22%2C%22className%22%3A%22text-sm%22%7D
+                                                class=text-sm>YES</span>
+                                            <input type=checkbox role=checkbox aria-checked=false data-state=unchecked
+                                                value=on data-lov-id=src/components/ShopDrawingSubmittal.tsx:93:20
+                                                data-lov-name=Checkbox
+                                                data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                                data-component-line=93 data-component-file=ShopDrawingSubmittal.tsx
+                                                data-component-name=Checkbox data-component-content=%7B%7D
+                                                class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                                                @checked($project->soft_copy)>
+                                        </div>
+                                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:95:18 data-lov-name=div
+                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                            data-component-line=95 data-component-file=ShopDrawingSubmittal.tsx
+                                            data-component-name=div
+                                            data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-1%22%7D
+                                            class="flex items-center space-x-1"><span
+                                                data-lov-id=src/components/ShopDrawingSubmittal.tsx:96:20
+                                                data-lov-name=span
+                                                data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                                data-component-line=96 data-component-file=ShopDrawingSubmittal.tsx
+                                                data-component-name=span
+                                                data-component-content=%7B%22text%22%3A%22NO%22%2C%22className%22%3A%22text-sm%22%7D
+                                                class=text-sm>NO</span>
+                                            <input type=checkbox role=checkbox aria-checked=false data-state=unchecked
+                                                value=on data-lov-id=src/components/ShopDrawingSubmittal.tsx:97:20
+                                                data-lov-name=Checkbox
+                                                data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                                data-component-line=97 data-component-file=ShopDrawingSubmittal.tsx
+                                                data-component-name=Checkbox data-component-content=%7B%7D
+                                                class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                                                @checked(!$project->soft_copy)>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:107:6 data-lov-name=Card
+                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=107
+                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=Card
+                    data-component-content=%7B%22className%22%3A%22mb-1%22%7D
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm" style="margin-bottom: 5px;">
+                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:108:8 data-lov-name=CardHeader
+                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=108
+                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardHeader
+                        data-component-content=%7B%7D class="flex flex-col space-y-1.5 p-1">
+                        <h3 data-lov-id=src/components/ShopDrawingSubmittal.tsx:109:10 data-lov-name=h3
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=109
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=h3
+                            data-component-content=%7B%22text%22%3A%22SHOP%20DRAWING%20SUBMITTAL%22%2C%22className%22%3A%22text-center%20font-bold%22%7D
+                            class="text-center font-bold">SHOP DRAWING SUBMITTAL</h3>
+                    </div>
+                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:111:8 data-lov-name=CardContent
+                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=111
+                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardContent
+                        data-component-content=%7B%22className%22%3A%22p-0%22%7D class=p-0>
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:112:10 data-lov-name=div
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=112
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                            data-component-content=%7B%22className%22%3A%22overflow-x-auto%22%7D class=overflow-x-auto>
+                            <table data-lov-id=src/components/ShopDrawingSubmittal.tsx:113:12 data-lov-name=table
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=113
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=table
+                                data-component-content=%7B%22className%22%3A%22w-full%20border-collapse%22%7D
+                                class="w-full border-collapse">
+                                <thead data-lov-id=src/components/ShopDrawingSubmittal.tsx:114:14 data-lov-name=thead
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=114
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=thead
+                                    data-component-content=%7B%7D>
+
+                                    <tr data-lov-id=src/components/ShopDrawingSubmittal.tsx:115:16 data-lov-name=tr
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=115 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=tr
+                                        data-component-content=%7B%22className%22%3A%22bg-gray-100%22%7D
+                                        class=bg-gray-100>
+                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:116:18 data-lov-name=th
+                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                            data-component-line=116 data-component-file=ShopDrawingSubmittal.tsx
+                                            data-component-name=th
+                                            data-component-content=%7B%22text%22%3A%22DESCRIPTION%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
+                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">
+                                            DESCRIPTION
+                                        </th>
+                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:117:18 data-lov-name=th
+                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                            data-component-line=117 data-component-file=ShopDrawingSubmittal.tsx
+                                            data-component-name=th
+                                            data-component-content=%7B%22text%22%3A%22Drawing%20No.%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
+                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">Drawing No.
+                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:118:18 data-lov-name=th
+                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                            data-component-line=118 data-component-file=ShopDrawingSubmittal.tsx
+                                            data-component-name=th
+                                            data-component-content=%7B%22text%22%3A%22No%20of%20copies%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
+                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">No of copies
+                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:119:18 data-lov-name=th
+                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                            data-component-line=119 data-component-file=ShopDrawingSubmittal.tsx
+                                            data-component-name=th
+                                            data-component-content=%7B%22text%22%3A%22Previous%20Status%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
+                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">SDS Number
+                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:120:18 data-lov-name=th
+                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                            data-component-line=120 data-component-file=ShopDrawingSubmittal.tsx
+                                            data-component-name=th
+                                            data-component-content=%7B%22text%22%3A%22A%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
+                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">Status
+                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:121:18 data-lov-name=th
+                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                            data-component-line=121 data-component-file=ShopDrawingSubmittal.tsx
+                                            data-component-name=th
+                                            data-component-content=%7B%22text%22%3A%22AN%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
+                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">Cycle
+                                <tbody>
+                                    @foreach ($project->outgoings as $outgoing)
+                                    <tr>
+                                        <td class="border border-gray-300 px-2 py-1 text-xs">
+                                            {{$outgoing->description}}
+                                        </td>
+                                        <td class="border border-gray-300 px-2 py-1 text-xs text-center">
+                                            {{$outgoing->dwg_no}}
+                                        </td>
+                                        <td class="border border-gray-300 px-2 py-1 text-xs text-center">
+                                            {{$outgoing->no_of_copies}}
+                                        </td>
+                                        <td class="border border-gray-300 px-2 py-1 text-xs text-center">
+                                            {{$outgoing->sds_no}}
+                                        </td>
+                                        <td class="border border-gray-300 px-2 py-1 text-xs">
+                                            {{$outgoing->status}}
+                                        </td>
+                                        <td class="border border-gray-300 px-2 py-1 text-xs">
+                                            {{$outgoing->cycle}}
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                            </table>
+                        </div>
+                        <div class="px-4 py-2 text-xs">
+                            <p>
+                                <strong>Consultant's Approval Legend:</strong> A (Approved), AN (Approved As Noted), RR
+                                (Revise &amp;
+                                Resubmit).
+                            </p>
+                        </div>
+                        <div class="shrink-0 bg-border h-[1px] w-full my-2"></div>
+                        <div class="px-4 py-2">
+                            <p class="text-xs font-medium">For National contracting &amp; Transport Co LLC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm" style="margin-bottom: 5px;">
+                    <div class="px-1 pt-4">
+                        <div class="grid grid-cols-1 gap-4" style="margin-bottom: 5px">
+                            <div class="flex justify-between w-full flex-col">
+                                <div class="flex justify-between items-center mb-2 border-b border-gray-300 "
+                                    style="margin-bottom: 10px;">
+                                    <span class=text-sm>Approved by:</span>
+                                </div>
+                                <div class="flex justify-between items-center mb-2 border-b border-gray-300 "
+                                    style="margin-bottom: 10px;">
+                                    <span class=text-sm>Date:</span>
+                                </div>
+                                <div class="flex justify-between items-center mb-2 border-b border-gray-300 "
+                                    style="margin-bottom: 10px;">
+                                    <span class=text-sm>Signature:</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center" style="margin-bottom: 5px">
+                            <h4 class="font-bold text-sm">e11 Engineering Consultancy &amp; Project Management</h4>
+                        </div>
+                        <div style="margin-bottom: 5px">
+                            <h5 class="text-sm font-medium mb-2">Consultants Comments:</h5>
+                            <div class="border border-gray-300 h-24 p-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm" style="margin-bottom:5px ">
+                    <div class="flex flex-col space-y-1.5 pt-2 px-2">
+                        <h3 class="py-2" style="text-align: center">CONSULTANTS APPROVAL STATUS</h3>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:201:10 data-lov-name=div
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=201
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                            data-component-content=%7B%22className%22%3A%22grid%20grid-cols-2%20gap-8%22%7D
+                            class="grid grid-cols-2 gap-8">
+                            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:202:12 data-lov-name=div
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=202
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                data-component-content=%7B%22className%22%3A%22space-y-3%22%7D class=space-y-3>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:203:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=203
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
+                                    class="flex items-center space-x-2"><button type=button role=checkbox
+                                        aria-checked=false data-state=unchecked value=on
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:204:16
+                                        data-lov-name=Checkbox
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=204 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=Checkbox data-component-content=%7B%7D
+                                        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                                        id=approved></button><label
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:205:16 data-lov-name=label
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=205 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=label
+                                        data-component-content=%7B%22text%22%3A%22APPROVED%22%2C%22className%22%3A%22text-sm%22%7D
+                                        for=approved class=text-sm>APPROVED</label></div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:207:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=207
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
+                                    class="flex items-center space-x-2"><button type=button role=checkbox
+                                        aria-checked=false data-state=unchecked value=on
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:208:16
+                                        data-lov-name=Checkbox
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=208 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=Checkbox data-component-content=%7B%7D
+                                        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                                        id=revise-resubmit></button><label
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:209:16 data-lov-name=label
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=209 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=label
+                                        data-component-content=%7B%22text%22%3A%22REVISE%20%26%20RESUBMIT%20AS%20NOTED%22%2C%22className%22%3A%22text-sm%22%7D
+                                        for=revise-resubmit class=text-sm>REVISE &amp; RESUBMIT AS NOTED</label></div>
+                            </div>
+                            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:212:12 data-lov-name=div
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=212
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                data-component-content=%7B%22className%22%3A%22space-y-3%22%7D class=space-y-3>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:213:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=213
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
+                                    class="flex items-center space-x-2"><button type=button role=checkbox
+                                        aria-checked=false data-state=unchecked value=on
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:214:16
+                                        data-lov-name=Checkbox
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=214 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=Checkbox data-component-content=%7B%7D
+                                        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                                        id=approved-noted></button><label
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:215:16 data-lov-name=label
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=215 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=label
+                                        data-component-content=%7B%22text%22%3A%22APPROVED%20AS%20NOTED%22%2C%22className%22%3A%22text-sm%22%7D
+                                        for=approved-noted class=text-sm>APPROVED AS NOTED</label></div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:217:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=217
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
+                                    class="flex items-center space-x-2"><button type=button role=checkbox
+                                        aria-checked=false data-state=unchecked value=on
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:218:16
+                                        data-lov-name=Checkbox
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=218 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=Checkbox data-component-content=%7B%7D
+                                        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                                        id=no-approval></button><label
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:219:16 data-lov-name=label
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=219 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=label
+                                        data-component-content=%7B%22text%22%3A%22NO%20APPROVAL%20REQUIRED%20%2F%20REJECTED%22%2C%22className%22%3A%22text-sm%22%7D
+                                        for=no-approval class=text-sm>NO APPROVAL REQUIRED / REJECTED</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:227:6 data-lov-name=div
+                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=227
+                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                    data-component-content=%7B%22className%22%3A%22grid%20grid-cols-2%20gap-8%22%7D
+                    class="grid grid-cols-2 gap-8">
+                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:228:8 data-lov-name=Card
+                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=228
+                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=Card
+                        data-component-content=%7B%7D class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:229:10 data-lov-name=CardContent
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=229
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardContent
+                            data-component-content=%7B%22className%22%3A%22pt-4%22%7D class="p-6 pt-4">
+                            <div class=space-y-4>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:231:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=231
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%7D>
+                                    <span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:232:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=232 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22R.E%20Signature%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">R.E Signature:</span>
+                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:233:16 data-lov-name=div
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=233 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=div
+                                        data-component-content=%7B%22className%22%3A%22border-b%20border-gray-300%20mt-1%22%7D
+                                        class="border-b border-gray-300 mt-1"></div>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:235:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=235
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%7D><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:236:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=236 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22Date%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">Date:</span>
+                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:237:16 data-lov-name=div
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=237 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=div
+                                        data-component-content=%7B%22className%22%3A%22border-b%20border-gray-300%20mt-1%22%7D
+                                        class="border-b border-gray-300 mt-1"></div>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:239:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=239
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%7D><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:240:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=240 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22Received%20By%20Consultant%3A%20(e11)%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">Received By Consultant: (e11)</span>
+                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:241:16 data-lov-name=div
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=241 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=div
+                                        data-component-content=%7B%22className%22%3A%22border-b%20border-gray-300%20mt-1%22%7D
+                                        class="border-b border-gray-300 mt-1"></div>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:243:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=243
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%7D><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:244:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=244 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22Received%20By%20Contractor%3A%20(NCTC)%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">Received By Contractor: (NCTC)</span>
+                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:245:16 data-lov-name=div
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=245 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=div
+                                        data-component-content=%7B%22className%22%3A%22border-b%20border-gray-300%20mt-1%22%7D
+                                        class="border-b border-gray-300 mt-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:251:8 data-lov-name=Card
+                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=251
+                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=Card
+                        data-component-content=%7B%7D class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:252:10 data-lov-name=CardContent
+                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=252
+                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardContent
+                            data-component-content=%7B%22className%22%3A%22pt-4%22%7D class="p-6 pt-4">
+                            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:253:12 data-lov-name=div
+                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=253
+                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                data-component-content=%7B%22className%22%3A%22space-y-4%22%7D class=space-y-4>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:254:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=254
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%7D>
+                                    <span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:255:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=255 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22Signature%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">Signature:</span>
+                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:256:16 data-lov-name=div
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=256 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=div
+                                        data-component-content=%7B%22className%22%3A%22border-b%20border-gray-300%20mt-1%22%7D
+                                        class="border-b border-gray-300 mt-1"></div>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:258:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=258
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%7D><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:259:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=259 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22Date%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">Date:</span>
+                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:260:16 data-lov-name=div
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=260 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=div
+                                        data-component-content=%7B%22className%22%3A%22border-b%20border-gray-300%20mt-1%22%7D
+                                        class="border-b border-gray-300 mt-1"></div>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:262:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=262
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%7D><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:263:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=263 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22Signature%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">Signature:</span>
+                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:264:16 data-lov-name=div
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=264 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=div
+                                        data-component-content=%7B%22className%22%3A%22border-b%20border-gray-300%20mt-1%22%7D
+                                        class="border-b border-gray-300 mt-1"></div>
+                                </div>
+                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:266:14 data-lov-name=div
+                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=266
+                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
+                                    data-component-content=%7B%7D><span
+                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:267:16 data-lov-name=span
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=267 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=span
+                                        data-component-content=%7B%22text%22%3A%22Date%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
+                                        class="text-sm font-medium">Date:</span>
+                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:268:16 data-lov-name=div
+                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
+                                        data-component-line=268 data-component-file=ShopDrawingSubmittal.tsx
+                                        data-component-name=div
+                                        data-component-content=%7B%22className%22%3A%22border-b%20border-gray-300%20mt-1%22%7D
+                                        class="border-b border-gray-300 mt-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        window.print();
+    };
+    window.onafterprint = function() {
+        window.close();
+    };
+</script>
+
+</html>

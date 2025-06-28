@@ -12,34 +12,63 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\SelectFilter;
 
 class IncomingResource extends Resource
 {
     protected static ?string $model = Incoming::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-arrow-trending-down';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('submittel_id')
-                    ->tel()
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('file')
-                    ->maxLength(255),
+                Forms\Components\Select::make('category_id')
+                    ->relationship('category', 'name')
+                    ->native(false)
+                    ->searchable()
+                    ->preload(5)
+                    ->required(),
+                Forms\Components\Select::make('submittel_id')
+                    ->relationship('submittel', 'ref_no')
+                    ->native(false)
+                    ->searchable()
+                    ->preload(5)
+                    ->required(),
+                Forms\Components\FileUpload::make('file')
+                    ->downloadable()
+                    ->label('File Name'),
                 Forms\Components\TextInput::make('sds_no')
+                    ->placeholder('Enter SDS Number')
                     ->maxLength(255),
+                Forms\Components\TextInput::make('no_of_copies')
+                    ->placeholder('No of Copies')
+                    ->numeric()
+                    ->default(1)
+                    ->minValue(0)
+                    ->label('No of Copies'),
                 Forms\Components\TextInput::make('dwg_no')
+                    ->placeholder('Enter Drawing Number')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('description')
+                    ->placeholder('Enter Description')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('status'),
+                Forms\Components\Select::make('status')
+                    ->options(function () {
+                        $user = Auth::user();
+                        return [
+                            'approved' => 'Approved',
+                            'under_review' => 'Under review',
+                            'approved_as_noted' => 'Approved As Noted',
+                            'revise_and_resubmit' => 'Revise And Resubmit',
+                            'rejected' => 'Rejected',
+                        ];
+                    }),
                 Forms\Components\TextInput::make('cycle')
+                    ->default(0)
                     ->numeric(),
             ]);
     }
@@ -48,22 +77,39 @@ class IncomingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('submittel_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('file')
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Submitted By')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('approved.name')
+                    ->label('Approved By')
+                    ->default('N/A')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('category.name')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('submittel.ref_no')
+                    ->label('Submittel Ref No')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('sds_no')
                     ->searchable(),
+
                 Tables\Columns\TextColumn::make('dwg_no')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('status')
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        'approved' => 'success',
+                        'under_review' => 'primary',
+                        'approved_as_noted' => 'teal',
+                        'revise_and_resubmit' => 'lime',
+                        'rejected' => 'danger',
+                    })
+                    ->formatStateUsing(function (string $state): string {
+                        return str_replace('_', ' ', ucfirst(strtolower($state)));
+                    }),
                 Tables\Columns\TextColumn::make('cycle')
+                    ->default(0)
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -75,9 +121,46 @@ class IncomingResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
+            ->filters(
+                [
+                    SelectFilter::make('submittel_id')
+                        ->label('Filter by Submittel')
+                        ->relationship('submittel', 'ref_no') // assuming Submittel has 'title' field
+                        ->searchable()
+                        ->preload()
+                        ->indicator('Submittel')
+                        ->placeholder('All Submittels'),
+                    SelectFilter::make('category_id')
+                        ->label('Filter by Category')
+                        ->relationship('category', 'name') // assuming Submittel has 'title' field
+                        ->searchable()
+                        ->preload()
+                        ->placeholder('All Categories'),
+                    SelectFilter::make('status')
+                        ->label('Filter by Status')
+                        ->options([
+                            'approved' => 'Approved',
+                            'under_review' => 'Under review',
+                            'approved_as_noted' => 'Approved As Noted',
+                            'revise_and_resubmit' => 'Revise And Resubmit',
+                            'rejected' => 'Rejected',
+                        ])
+                        ->searchable()
+                        ->preload()
+                        ->placeholder('All Statuses'),
+                    SelectFilter::make('cycle')
+                        ->label('Filter by Cycle')
+                        ->options(Incoming::query()
+                            ->select('cycle')
+                            ->distinct()
+                            ->pluck('cycle', 'cycle')
+                            ->toArray())
+                        ->searchable()
+                        ->preload()
+                        ->placeholder('All Statuses')
+                ],
+                layout: FiltersLayout::AboveContentCollapsible
+            )
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
