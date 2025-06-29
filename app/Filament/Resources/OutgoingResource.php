@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Storage;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Support\Collection;
+use Filament\Actions\Exports\Enums\ExportFormat;
+use Filament\Tables\Actions\ExportBulkAction;
+use App\Filament\Exports\OutgoingExporter;
 
 class OutgoingResource extends Resource
 {
@@ -204,6 +207,16 @@ class OutgoingResource extends Resource
                         ->requiresConfirmation()
                         ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
                         ->deselectRecordsAfterCompletion(),
+
+                        ExportBulkAction::make()
+                        ->color('primary')
+                        ->label('Export')
+                        ->icon('heroicon-o-arrow-up-tray')
+                        ->exporter(OutgoingExporter::class)
+                        ->formats([
+                            ExportFormat::Xlsx,
+                            ExportFormat::Csv,
+                        ])
 
                     // Tables\Actions\BulkAction::make('sendToViewer')
                     //     ->label('Send To Viewer')

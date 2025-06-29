@@ -20,4 +20,8 @@ class Outgoing extends Model
     {
         return $this->belongsTo(User::class , 'submitted_by');
     }
+    public function approved()
+    {
+        return $this->belongsTo(User::class , 'approved_by');
+    }
 }

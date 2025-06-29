@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\SubmittelExporter;
 use App\Filament\Resources\SubmittelResource\Pages;
 use App\Filament\Resources\SubmittelResource\RelationManagers;
 use App\Models\Submittel;
@@ -15,6 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Repeater;
 use App\Models\Category;
+use Filament\Actions\Exports\Enums\ExportFormat;
+use Filament\Tables\Actions\ExportBulkAction;
 use Illuminate\Support\Facades\Auth;
 use Filament\Tables\Columns\BadgeColumn;
 use Illuminate\Database\Eloquent\Factories\Relationship;
@@ -227,6 +230,14 @@ class SubmittelResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    ExportBulkAction::make()
+                    ->label('Export')
+                    ->color('primary')
+                    ->exporter(SubmittelExporter::class)
+                    ->formats([
+                        ExportFormat::Xlsx,
+                            ExportFormat::Csv,
+                    ])
                 ]),
             ]);
     }

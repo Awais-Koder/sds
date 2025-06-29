@@ -2,8 +2,12 @@
 
 namespace App\Filament\Resources\SubmittelResource\Pages;
 
+use App\Filament\Exports\IncomingExporter;
+use App\Filament\Exports\SubmittelExporter;
 use App\Filament\Resources\SubmittelResource;
 use Filament\Actions;
+use Filament\Actions\ExportAction;
+use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Resources\Pages\ListRecords;
 
 class ListSubmittels extends ListRecords
@@ -14,6 +18,15 @@ class ListSubmittels extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+            ExportAction::make('Export')
+            ->label('Export')
+            ->color('success')
+            ->icon('heroicon-o-arrow-down-tray')
+                ->exporter(SubmittelExporter::class)
+            ->formats([
+                ExportFormat::Xlsx,
+                ExportFormat::Csv,
+            ])
         ];
     }
 }

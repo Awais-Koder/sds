@@ -2,9 +2,12 @@
 
 namespace App\Filament\Resources\IncomingResource\Pages;
 
+use App\Filament\Exports\IncomingExporter;
 use App\Filament\Resources\IncomingResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Actions\ExportAction;
+use Filament\Actions\Exports\Enums\ExportFormat;
 
 class ListIncomings extends ListRecords
 {
@@ -14,6 +17,15 @@ class ListIncomings extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+            ExportAction::make('Export')
+            ->label('Export')
+            ->color('success')
+            ->icon('heroicon-o-arrow-down-tray')
+                ->exporter(IncomingExporter::class)
+            ->formats([
+                ExportFormat::Xlsx,
+                ExportFormat::Csv,
+            ])
         ];
     }
 }
