@@ -8,12 +8,15 @@ use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 })->name('home')->middleware('personal-verify');
+Route::get('/login', function () {
+    return redirect()->route('filament.app.auth.login');
+})->middleware('personal-verify');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+// Route::view('dashboard', 'dashboard')
+//     ->middleware(['auth', 'verified'])
+//     ->name('dashboard');
 
 Route::middleware(['auth', 'personal-verify'])->group(function () {
     Route::redirect('settings', 'settings/profile');

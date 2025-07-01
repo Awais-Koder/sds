@@ -9,21 +9,17 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable 
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable , HasRoles;
+    use HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -56,7 +52,12 @@ class User extends Authenticatable
         return Str::of($this->name)
             ->explode(' ')
             ->take(2)
-            ->map(fn ($word) => Str::substr($word, 0, 1))
+            ->map(fn($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
+
+    // public function roles()
+    // {
+    //     return $this->hasMany(Role::class);
+    // }
 }

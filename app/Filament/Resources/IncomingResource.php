@@ -19,6 +19,7 @@ use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Tables\Actions\ExportBulkAction;
+
 class IncomingResource extends Resource
 {
     protected static ?string $model = Incoming::class;
@@ -60,8 +61,9 @@ class IncomingResource extends Resource
                     ->placeholder('Enter Description')
                     ->maxLength(255),
                 Forms\Components\Select::make('status')
+                    ->required()
+                    ->reactive()
                     ->options(function () {
-                        $user = Auth::user();
                         return [
                             'approved' => 'Approved',
                             'under_review' => 'Under review',
@@ -72,7 +74,15 @@ class IncomingResource extends Resource
                     }),
                 Forms\Components\TextInput::make('cycle')
                     ->default(0)
+                    ->columnSpanFull()
                     ->numeric(),
+                Forms\Components\Textarea::make('comments')
+                    ->placeholder('Comments here')
+                    ->rows(10)
+                    ->visible(fn($get) => $get('status') !== 'approved')
+                    ->required(fn($get) => $get('status') !== 'approved')
+                    ->reactive()
+                    ->columnSpanFull()
             ]);
     }
 
@@ -166,20 +176,21 @@ class IncomingResource extends Resource
             )
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
-            ->headerActions([
-            ])
+            ->headerActions([])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
                     ExportBulkAction::make()
-                    ->label('Export')
-                    ->color('primary')
-                    ->exporter(IncomingExporter::class)
-                    ->formats([
-                        ExportFormat::Xlsx,
-                        ExportFormat::Csv,
-                    ])
+                        ->label('Export')
+                        ->color('primary')
+                        ->exporter(IncomingExporter::class)
+                        ->formats([
+                            ExportFormat::Xlsx,
+                            ExportFormat::Csv,
+                        ])
                 ]),
             ]);
     }

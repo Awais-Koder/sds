@@ -16,10 +16,12 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Repeater;
 use App\Models\Category;
+use App\Models\Setting;
 use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Tables\Actions\ExportBulkAction;
 use Illuminate\Support\Facades\Auth;
 use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Actions\ActionGroup;
 use Illuminate\Database\Eloquent\Factories\Relationship;
 
 use function Livewire\Volt\placeholder;
@@ -57,6 +59,7 @@ class SubmittelResource extends Resource
                             })
                             ->label('Re Submittel of'),
                         Forms\Components\Textarea::make('name')
+                            ->default(Setting::first()?->project_name ?? '')
                             ->required()
                             ->placeholder('Enter the name of the submittel'),
                         Forms\Components\TextInput::make('ref_no')
@@ -64,7 +67,6 @@ class SubmittelResource extends Resource
                             ->placeholder('Enter the reference number')
                             ->maxLength(255),
                         Forms\Components\TextInput::make('cycle')
-                            // ->default(fn($record) => $record('cycle'))
                             ->placeholder('Enter the cycle number')
                             ->minValue(0)
                             ->default(0)
@@ -93,7 +95,25 @@ class SubmittelResource extends Resource
                             ->placeholder('Select the date of the submittel')
                             ->columnSpanFull()
                             ->closeOnDateSelection(),
-
+                        Forms\Components\Select::make('status')
+                            ->required()
+                            ->label('Select status')
+                            ->reactive()
+                            ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner']))
+                            ->columnSpanFull()
+                            ->options([
+                                'approved' => 'Approved',
+                                'approved_as_noted' => 'Approved as noted',
+                                'revise_resubmit_as_noted' => 'Revise resubmit as noted',
+                                'rejected' => 'Rejected',
+                            ])->default('approved'),
+                        Forms\Components\Textarea::make('comments')
+                            ->reactive()
+                            ->required(fn($get) => $get('status') !== 'approved')
+                            ->visible(fn($get) => $get('status') !== 'approved')
+                            ->placeholder('Enter comments here')
+                            ->columnSpanFull()
+                            ->rows(10),
                     ])
                     ->collapsible()
                     ->columns(2),
@@ -113,12 +133,7 @@ class SubmittelResource extends Resource
                                     ->label('Upload File')
                                     ->imageEditor()
                                     ->required()
-                                    ->acceptedFileTypes(['application/pdf', 'image/*'])
-                                    ->maxSize(10240), // 10 MB,
-                                Forms\Components\TextInput::make('sds_no')
-                                    ->placeholder('Enter SDS Number')
-                                    ->label('SDS Number')
-                                    ->maxLength(255),
+                                    ->acceptedFileTypes(['application/pdf', 'image/*']), // 10 MB,
                                 Forms\Components\TextInput::make('no_of_copies')
                                     ->placeholder('No of Copies')
                                     ->numeric()
@@ -134,18 +149,19 @@ class SubmittelResource extends Resource
                                 Forms\Components\Select::make('status')
                                     ->options(function () {
                                         $user = Auth::user();
-
                                         if ($user->hasRole('editor')) {
                                             return [
                                                 'submitted' => 'Submitted',
                                             ];
+                                        } elseif ($user->hasRole('super_admin')) {
+                                            return [
+                                                'submitted' => 'Submitted',
+                                                'under_review' => 'Under review',
+                                                'revise_and_resubmit' => 'Revise and resubmit',
+                                            ];
+                                        } else {
+                                            return [];
                                         }
-
-                                        return [
-                                            'submitted' => 'Submitted',
-                                            'under_review' => 'Under review',
-                                            'revise_and_resubmit' => 'Revise and resubmit',
-                                        ];
                                     }),
                                 Forms\Components\TextInput::make('cycle')
                                     ->reactive()
@@ -157,7 +173,7 @@ class SubmittelResource extends Resource
                             ])
                             ->addActionLabel('Add drawing')
                             ->cloneable()
-                            ->columns(7)
+                            ->columns(6)
                             ->collapsible()
                             ->defaultItems(1),
                     ])
@@ -172,10 +188,10 @@ class SubmittelResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
-                    ->label('Submitted By')
+                    ->label('Created By')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('name')
+                //     ->searchable(),
                 Tables\Columns\TextColumn::make('ref_no')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('new_submittel')
@@ -197,8 +213,13 @@ class SubmittelResource extends Resource
                     ->badge()
                     ->color(fn(string $state): string => match ($state) {
                         'submitted' => 'warning',
-                        'under_review' => 'gray',
+                        'approved' => 'success',
+                        'approved_as_noted' => 'lime',
+                        'revise_resubmit_as_noted' => 'teal',
                         'rejected' => 'danger',
+                    })
+                    ->formatStateUsing(function (string $state): string {
+                        return str_replace('_', ' ', ucfirst(strtolower($state)));
                     }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -213,31 +234,36 @@ class SubmittelResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
-                    ->color('zinc'),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\Action::make('Pdf')
-                    ->color('success')
-                    ->url(fn(Submittel $record) => route('download.pdf', $record->id))
-                    ->icon('heroicon-o-arrow-down-tray')
-                    ->openUrlInNewTab(),
-                Tables\Actions\Action::make('Download Files')
-                    ->url(fn(Submittel $record) => route('download.submittel.files', $record->id))
-                    ->icon('heroicon-o-document')
-                    ->color('gray')
-                    ->openUrlInNewTab(),
+                ActionGroup::make([
+
+                    Tables\Actions\EditAction::make()
+                        ->color('zinc'),
+                    Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\Action::make('Pdf')
+                        ->color('success')
+                        ->url(fn(Submittel $record) => route('download.pdf', $record->id))
+                        ->icon('heroicon-o-arrow-down-tray')
+                        ->openUrlInNewTab(),
+                    Tables\Actions\Action::make('Download Files')
+                        ->url(fn(Submittel $record) => route('download.submittel.files', $record->id))
+                        ->icon('heroicon-o-document')
+                        ->color('gray')
+                        ->openUrlInNewTab(),
+                        Tables\Actions\ViewAction::make()
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                    ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
                     ExportBulkAction::make()
-                    ->label('Export')
-                    ->color('primary')
-                    ->exporter(SubmittelExporter::class)
-                    ->formats([
-                        ExportFormat::Xlsx,
+                        ->label('Export')
+                        ->color('primary')
+                        ->exporter(SubmittelExporter::class)
+                        ->formats([
+                            ExportFormat::Xlsx,
                             ExportFormat::Csv,
-                    ])
+                        ])
                 ]),
             ]);
     }
@@ -254,6 +280,7 @@ class SubmittelResource extends Resource
         return [
             'index' => Pages\ListSubmittels::route('/'),
             'create' => Pages\CreateSubmittel::route('/create'),
+            'view' => Pages\ViewSubmittel::route('/{record}'),
             'edit' => Pages\EditSubmittel::route('/{record}/edit'),
         ];
     }

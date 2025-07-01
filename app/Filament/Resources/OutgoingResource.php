@@ -66,18 +66,19 @@ class OutgoingResource extends Resource
                 Forms\Components\Select::make('status')
                     ->options(function () {
                         $user = Auth::user();
-
                         if ($user->hasRole('editor')) {
                             return [
                                 'submitted' => 'Submitted',
                             ];
+                        } elseif ($user->hasRole('super_admin')) {
+                            return [
+                                'submitted' => 'Submitted',
+                                'under_review' => 'Under review',
+                                'revise_and_resubmit' => 'Revise and resubmit',
+                            ];
+                        } else {
+                            return [];
                         }
-
-                        return [
-                            'submitted' => 'Submitted',
-                            'under_review' => 'Under review',
-                            'revise_and_resubmit' => 'Revise and resubmit',
-                        ];
                     }),
                 Forms\Components\TextInput::make('cycle')
                     ->default(0)
@@ -176,7 +177,8 @@ class OutgoingResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                    ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
                     Tables\Actions\BulkAction::make('sendToActioner')
                         ->label('Send To Actioner')
                         ->icon('heroicon-o-paper-airplane')
@@ -208,7 +210,7 @@ class OutgoingResource extends Resource
                         ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
                         ->deselectRecordsAfterCompletion(),
 
-                        ExportBulkAction::make()
+                    ExportBulkAction::make()
                         ->color('primary')
                         ->label('Export')
                         ->icon('heroicon-o-arrow-up-tray')
@@ -217,27 +219,6 @@ class OutgoingResource extends Resource
                             ExportFormat::Xlsx,
                             ExportFormat::Csv,
                         ])
-
-                    // Tables\Actions\BulkAction::make('sendToViewer')
-                    //     ->label('Send To Viewer')
-                    //     ->icon('heroicon-o-paper-airplane')
-                    //     ->color('success')
-                    //     ->action(function (Collection $records) {
-                    //         $ids = $records->pluck('id')->toArray();
-                    //         Outgoing::whereIn('id', $ids)->update([
-                    //             'file_location' => 'actioner',
-                    //         ]);
-                    //     })->after(function () {
-                    //         Notification::make('Files Sent')
-                    //             ->title('Files Dispatched')
-                    //             ->body('The selected files have been successfully dispatched to the actioner.')
-
-                    //             ->success()
-                    //             ->send();
-                    //     })
-                    //     ->requiresConfirmation()
-                    //     ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner']))
-                    //     ->deselectRecordsAfterCompletion(),
 
                 ]),
 
