@@ -98,8 +98,8 @@ class OutgoingResource extends Resource
                 Tables\Columns\TextColumn::make('submittel.ref_no')
                     ->label('Submittel Ref No')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('sds_no')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('sds_no')
+                //     ->searchable(),
 
                 Tables\Columns\TextColumn::make('dwg_no')
                     ->searchable(),
@@ -155,11 +155,14 @@ class OutgoingResource extends Resource
                         ->placeholder('All Statuses'),
                     SelectFilter::make('cycle')
                         ->label('Filter by Cycle')
-                        ->options(Outgoing::query()
-                            ->select('cycle')
-                            ->distinct()
-                            ->pluck('cycle', 'cycle')
-                            ->toArray())
+                        ->options(
+                            Outgoing::query()
+                                ->whereNotNull('cycle') // 👈 filter nulls
+                                ->select('cycle')
+                                ->distinct()
+                                ->pluck('cycle', 'cycle')
+                                ->toArray()
+                        )
                         ->searchable()
                         ->preload()
                         ->placeholder('All Statuses')
@@ -178,7 +181,7 @@ class OutgoingResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                    ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
+                        ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
                     Tables\Actions\BulkAction::make('sendToActioner')
                         ->label('Send To Actioner')
                         ->icon('heroicon-o-paper-airplane')
@@ -243,10 +246,15 @@ class OutgoingResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        $query = static::getModel()::query();
-
+        $query = static::getModel()::query()
+            ->whereHas('submittel', function ($q) {
+                $q->where('status', '!=', 'draft');
+            });
         if (Auth::check() && Auth::user()->hasRole('actioner')) {
-            $query->where('file_location', 'actioner'); // <-- adjust this string as needed
+            $query->where(['file_location' => 'actioner']);
+        }
+        if (Auth::check() && Auth::user()->hasRole('editor')) {
+            $query->where('submitted_by', Auth::id());
         }
 
         return $query;

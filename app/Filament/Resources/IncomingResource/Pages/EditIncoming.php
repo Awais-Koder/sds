@@ -15,6 +15,9 @@ class EditIncoming extends EditRecord
     {
         $data['approved_by'] = Auth::id();
         $data['update_time'] = now();
+        if(!empty($data['cycle'])){
+            $data['cycle'] = 0;
+        }
         return $data;
     }
 

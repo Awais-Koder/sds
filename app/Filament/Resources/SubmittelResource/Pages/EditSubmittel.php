@@ -5,6 +5,7 @@ namespace App\Filament\Resources\SubmittelResource\Pages;
 use App\Filament\Resources\SubmittelResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Facades\Auth;
 
 class EditSubmittel extends EditRecord
 {
@@ -13,16 +14,12 @@ class EditSubmittel extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        $this->shopDrawingsTemp = $data['Shop Drawings'] ?? [];
-        unset($data['Shop Drawings']);
-        return $data;
-    }
-
-    protected function afterSave()
-    {
-        foreach ($this->shopDrawingsTemp as $drawing) {
-            $this->record->outgoings()->create($drawing);
+        if (isset($data['new_submittel'])) {
+            $data['cycle'] = 0;
         }
+        $data['submitted_by'] = Auth::id();
+        $data['submitted_time'] = now();
+        return $data;
     }
 
     protected function getHeaderActions(): array

@@ -45,9 +45,9 @@ class IncomingResource extends Resource
                 Forms\Components\FileUpload::make('file')
                     ->downloadable()
                     ->label('File Name'),
-                Forms\Components\TextInput::make('sds_no')
-                    ->placeholder('Enter SDS Number')
-                    ->maxLength(255),
+                // Forms\Components\TextInput::make('sds_no')
+                //     ->placeholder('Enter SDS Number')
+                //     ->maxLength(255),
                 Forms\Components\TextInput::make('no_of_copies')
                     ->placeholder('No of Copies')
                     ->numeric()
@@ -73,14 +73,14 @@ class IncomingResource extends Resource
                         ];
                     }),
                 Forms\Components\TextInput::make('cycle')
+                ->label('Revision')
                     ->default(0)
-                    ->columnSpanFull()
                     ->numeric(),
                 Forms\Components\Textarea::make('comments')
                     ->placeholder('Comments here')
                     ->rows(10)
-                    ->visible(fn($get) => $get('status') !== 'approved')
-                    ->required(fn($get) => $get('status') !== 'approved')
+                    ->visible(fn($get) => !in_array($get('status'), ['approved', 'under_review']))
+                    ->required(fn($get) => !in_array($get('status'), ['approved', 'under_review']))
                     ->reactive()
                     ->columnSpanFull()
             ]);
@@ -102,8 +102,8 @@ class IncomingResource extends Resource
                 Tables\Columns\TextColumn::make('submittel.ref_no')
                     ->label('Submittel Ref No')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('sds_no')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('sds_no')
+                //     ->searchable(),
 
                 Tables\Columns\TextColumn::make('dwg_no')
                     ->searchable(),
@@ -164,6 +164,7 @@ class IncomingResource extends Resource
                     SelectFilter::make('cycle')
                         ->label('Filter by Cycle')
                         ->options(Incoming::query()
+                        ->whereNotNull('cycle')
                             ->select('cycle')
                             ->distinct()
                             ->pluck('cycle', 'cycle')
@@ -209,5 +210,16 @@ class IncomingResource extends Resource
             'create' => Pages\CreateIncoming::route('/create'),
             'edit' => Pages\EditIncoming::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = static::getModel()::query();
+
+        if (Auth::check() && Auth::user()->hasRole('editor')) {
+            $query->where('submitted_by', Auth::id());
+        }
+
+        return $query;
     }
 }

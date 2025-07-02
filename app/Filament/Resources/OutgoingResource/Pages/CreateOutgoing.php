@@ -15,6 +15,9 @@ class CreateOutgoing extends CreateRecord
     {
         $data['submitted_by'] = Auth::id();
         $data['submitted_time'] = now();
+        if(!empty($data['cycle'])){
+            $data['cycle'] = 0;
+        }
         return $data;
     }
 }

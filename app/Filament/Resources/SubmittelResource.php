@@ -20,11 +20,9 @@ use App\Models\Setting;
 use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Tables\Actions\ExportBulkAction;
 use Illuminate\Support\Facades\Auth;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Actions\ActionGroup;
-use Illuminate\Database\Eloquent\Factories\Relationship;
-
-use function Livewire\Volt\placeholder;
+use Filament\Notifications\Notification;
+use Illuminate\Support\Collection;
 
 class SubmittelResource extends Resource
 {
@@ -99,18 +97,37 @@ class SubmittelResource extends Resource
                             ->required()
                             ->label('Select status')
                             ->reactive()
-                            ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner']))
+                            ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner', 'editor']))
                             ->columnSpanFull()
-                            ->options([
-                                'approved' => 'Approved',
-                                'approved_as_noted' => 'Approved as noted',
-                                'revise_resubmit_as_noted' => 'Revise resubmit as noted',
-                                'rejected' => 'Rejected',
-                            ])->default('approved'),
+                            ->options(function () {
+                                $user = Auth::user();
+                                if ($user->hasRole('editor')) {
+                                    return [
+                                        'submitted' => 'Submitted',
+                                        'draft' => 'Draft',
+                                    ];
+                                } elseif ($user->hasRole('super_admin')) {
+                                    return [
+                                        'submitted' => 'Submitted',
+                                        'approved' => 'Approved',
+                                        'approved_as_noted' => 'Approved as noted',
+                                        'revise_resubmit_as_noted' => 'Revise resubmit as noted',
+                                        'rejected' => 'Rejected',
+                                        'draft' => 'Draft',
+                                    ];
+                                } elseif ($user->hasRole('actioner')) {
+                                    return [
+                                        'approved' => 'Approved',
+                                        'approved_as_noted' => 'Approved as noted',
+                                        'revise_resubmit_as_noted' => 'Revise resubmit as noted',
+                                        'rejected' => 'Rejected',
+                                    ];
+                                }
+                            })->default('approved'),
                         Forms\Components\Textarea::make('comments')
                             ->reactive()
-                            ->required(fn($get) => $get('status') !== 'approved')
-                            ->visible(fn($get) => $get('status') !== 'approved')
+                            ->required(fn($get) => !in_array($get('status'), ['approved', 'submitted', 'draft']))
+                            ->visible(fn($get) => !in_array($get('status'), ['approved', 'submitted', 'draft']))
                             ->placeholder('Enter comments here')
                             ->columnSpanFull()
                             ->rows(10),
@@ -147,23 +164,29 @@ class SubmittelResource extends Resource
                                     ->label('Description ')
                                     ->maxLength(255),
                                 Forms\Components\Select::make('status')
+                                    ->reactive()
+
                                     ->options(function () {
                                         $user = Auth::user();
                                         if ($user->hasRole('editor')) {
                                             return [
                                                 'submitted' => 'Submitted',
+                                                'draft' => 'Draft',
                                             ];
                                         } elseif ($user->hasRole('super_admin')) {
                                             return [
                                                 'submitted' => 'Submitted',
                                                 'under_review' => 'Under review',
                                                 'revise_and_resubmit' => 'Revise and resubmit',
+                                                'draft' => 'Draft',
                                             ];
                                         } else {
                                             return [];
                                         }
-                                    }),
+                                    })
+                                    ->default(fn($get) => $get('../../status') == 'draft' ? 'draft' : null),
                                 Forms\Components\TextInput::make('cycle')
+                                    ->label('Revision')
                                     ->reactive()
                                     ->visible(fn($get) => $get('../../re_submittel') === true)
                                     ->placeholder('Enter the cycle number')
@@ -171,11 +194,22 @@ class SubmittelResource extends Resource
                                     ->default(0)
                                     ->numeric(),
                             ])
+
                             ->addActionLabel('Add drawing')
                             ->cloneable()
                             ->columns(6)
                             ->collapsible()
-                            ->defaultItems(1),
+                            ->defaultItems(1)
+                            ->mutateRelationshipDataBeforeCreateUsing(function (array $data) {
+                                $data['submitted_by'] = auth()->id();
+                                $data['submitted_time'] = now();
+                                return $data;
+                            })
+                            ->mutateRelationshipDataBeforeSaveUsing(function (array $data): array {
+                                $data['submitted_by'] = auth()->id();
+                                $data['submitted_time'] = now();
+                                return $data;
+                            }),
                     ])
                     ->columnSpanFull()
                     ->collapsible()
@@ -207,6 +241,7 @@ class SubmittelResource extends Resource
                     // ->since()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('cycle')
+                    ->label('Revision')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')
@@ -217,6 +252,7 @@ class SubmittelResource extends Resource
                         'approved_as_noted' => 'lime',
                         'revise_resubmit_as_noted' => 'teal',
                         'rejected' => 'danger',
+                        'draft' => 'zinc',
                     })
                     ->formatStateUsing(function (string $state): string {
                         return str_replace('_', ' ', ucfirst(strtolower($state)));
@@ -235,9 +271,8 @@ class SubmittelResource extends Resource
             ])
             ->actions([
                 ActionGroup::make([
-
                     Tables\Actions\EditAction::make()
-                        ->color('zinc'),
+                        ->color('teal'),
                     Tables\Actions\DeleteAction::make(),
                     Tables\Actions\Action::make('Pdf')
                         ->color('success')
@@ -247,15 +282,17 @@ class SubmittelResource extends Resource
                     Tables\Actions\Action::make('Download Files')
                         ->url(fn(Submittel $record) => route('download.submittel.files', $record->id))
                         ->icon('heroicon-o-document')
-                        ->color('gray')
+                        ->color('lime')
                         ->openUrlInNewTab(),
-                        Tables\Actions\ViewAction::make()
+                    Tables\Actions\ViewAction::make()
+                        ->color('primary'),
+
                 ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                    ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
+                        ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
                     ExportBulkAction::make()
                         ->label('Export')
                         ->color('primary')
@@ -263,7 +300,53 @@ class SubmittelResource extends Resource
                         ->formats([
                             ExportFormat::Xlsx,
                             ExportFormat::Csv,
-                        ])
+                        ]),
+                    Tables\Actions\BulkAction::make('send_by_dc_to_actioner')
+                        ->tooltip('Send To Actioner')
+                        ->label('Mark Date')
+                        ->color('success')
+                        ->icon('heroicon-o-check')
+                        ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records) {
+                            foreach ($records as $record) {
+                                if (is_null($record->send_by_dc_to_actioner)) {
+                                    $record->update([
+                                        'send_by_dc_to_actioner' => now(),
+                                    ]);
+                                }
+                            }
+                        })
+                        ->after(function () {
+                            Notification::make('mark_date')
+                                ->title('Mark Date')
+                                ->body('Selected submittals have been updated with the dispatch time to the actioner.')
+                                ->success()
+                                ->send();
+                    }),
+                    Tables\Actions\BulkAction::make('mark_by_actioner')
+                        ->tooltip('Mark By Actioner')
+                        ->label('Mark Date')
+                        ->color('teal')
+                        ->icon('heroicon-o-check')
+                        ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner']))
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records) {
+                            foreach ($records as $record) {
+                                if (is_null($record->mark_by_actioner)) {
+                                    $record->update([
+                                        'mark_by_actioner' => now(),
+                                    ]);
+                                }
+                            }
+                        })
+                        ->after(function () {
+                            Notification::make('mark_date')
+                                ->title('Mark Date')
+                                ->body('Selected submittals have been updated with the final decision.')
+                                ->success()
+                                ->send();
+                    })
                 ]),
             ]);
     }
@@ -283,5 +366,19 @@ class SubmittelResource extends Resource
             'view' => Pages\ViewSubmittel::route('/{record}'),
             'edit' => Pages\EditSubmittel::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = static::getModel()::query();
+
+        if (Auth::check() && Auth::user()->hasRole('editor')) {
+            $query->where('submitted_by', Auth::id());
+        }
+        if (Auth::check() && Auth::user()->hasRole('dc')) {
+            $query->where('status', 'submitted');
+        }
+
+        return $query;
     }
 }

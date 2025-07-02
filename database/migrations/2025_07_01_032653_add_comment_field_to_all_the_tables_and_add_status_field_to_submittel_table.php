@@ -34,7 +34,7 @@ return new class extends Migration
 
         foreach (['submittels', 'outgoings', 'incomings'] as $tableName) {
             Schema::table($tableName, function (Blueprint $table) {
-                $table->dropColumn('comments');
+                $table->dropColumn('comments')->change();
             });
         }
     }

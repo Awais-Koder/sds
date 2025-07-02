@@ -9,7 +9,7 @@ class PdfDownloadController extends Controller
 {
     public function downloadPdf($id)
     {
-        $project = Submittel::with('outgoings')->findOrFail($id);
+        $project = Submittel::with('incomings')->findOrFail($id);
         return view('pdf.pdf' , compact('project'));
     }
 }

@@ -1721,9 +1721,28 @@
                                 data-component-path=src/components/About.tsx data-component-line=41
                                 data-component-file=About.tsx data-component-name=p
                                 data-component-content="%7B%22text%22%3A%22For%20over%20two%20decades%2C%20we've%20been%20at%20the%20forefront%20of%20construction%20excellence%2C%20%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20delivering%20innovative%20solutions%20that%20exceed%20expectations%20and%20build%20lasting%20relationships.%22%2C%22className%22%3A%22text-xl%20text-gray-600%20max-w-3xl%20mx-auto%20leading-relaxed%22%7D"
-                                class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">For over two decades,
-                                we've been at the forefront of construction excellence, delivering innovative solutions
-                                that exceed expectations and build lasting relationships.</p>
+                                class="text-gray-600 max-w-5xl mx-auto leading-relaxed">For more than fifty
+                                years there has been one name that has consistently been a synonym in our industry for
+                                trustworthiness, quality and the best in infrastructure creation and development:
+                                National Contracting.
+                                At National Contracting we are proud of our reputation for completing all our projects
+                                on time, in budget, and to the highest international standards. This reputation means we
+                                are known across the region as a consistently high-quality creator of some of the most
+                                important roads, drainage systems, and civil engineering projects that people in the UAE
+                                use every day of the week.
+
+                                This consistency is the simple but effective recipe for our success. We believe in
+                                building communities. This belief shows itself nowhere better than in our firm
+                                commitment to our people, and the people of the UAE. We strive to invest in
+                                professionalism, in technology, and in the quality of service we offer to you, as we do
+                                for every single one of our clients.
+
+                                Over these fifty eventful years we have been in business, we have continued to invest in
+                                our supply chain by building, amongst other things, concrete and asphalt plants. This
+                                investment allows us total quality assurance, as well as an ability to supply both
+                                generic and niche materials, according to your need, and peace of mind.
+
+                                We are National Contracting: Superior Civil Engineers.</p>
                         </div>
                         <div data-lov-id=src/components/About.tsx:47:10 data-lov-name=div
                             data-component-path=src/components/About.tsx data-component-line=47
@@ -1742,11 +1761,26 @@
                                     data-component-path=src/components/About.tsx data-component-line=50
                                     data-component-file=About.tsx data-component-name=p
                                     data-component-content=%7B%22text%22%3A%22Founded%20in%202003%2C%20BuildCraft%20started%20with%20a%20simple%20mission%3A%20to%20create%20exceptional%20%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20buildings%20that%20enhance%20communities%20and%20stand%20the%20test%20of%20time.%20What%20began%20as%20a%20%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20small%20family%20business%20has%20grown%20into%20a%20leading%20construction%20company.%22%2C%22className%22%3A%22text-gray-600%20mb-6%20leading-relaxed%22%7D
-                                    class="text-gray-600 mb-6 leading-relaxed">Founded in 2003, National Contracting
-                                    started with
-                                    a simple mission: to create exceptional buildings that enhance communities and stand
-                                    the test of time. What began as a small family business has grown into a leading
-                                    construction company.
+                                    class="text-gray-600 mb-6 leading-relaxed">The UAE's history of the past fifty years
+                                    has never been quiet. Infrastructure building and civil engineering projects of
+                                    ever-greater size and complexity have continued to arise.
+
+                                    When National Contracting – or the National Contracting and Transportation Company
+                                    was first suggested in the early 1960s – this growth was only just beginning. It was
+                                    clear though to the company founders that sudden growth in Abu Dhabi, Dubai and
+                                    Sharjah, along with the other Northern Emirates was imminent.
+
+                                    In 1965, the decision was made, and National Contracting was born in Sharjah.
+                                    Immediately the company acquired road and infrastructure projects that would set the
+                                    stage for its phenomenal later growth.
+
+                                    The history of National Contracting has mirrored that of the UAE: vision fuelled by
+                                    a desire to make the country the pride of the region and the envy of its competitors
+                                    across the GCC.
+
+                                    Thanks to the vision of the founders, the wise policies of its rulers, and the
+                                    careful management of our team, National Contracting today sits rightfully at the
+                                    apex of our industry, with a record to be proud of, and the projects to prove it.
                                 <p data-lov-id=src/components/About.tsx:55:14 data-lov-name=p
                                     data-component-path=src/components/About.tsx data-component-line=55
                                     data-component-file=About.tsx data-component-name=p
@@ -1769,7 +1803,7 @@
                                         data-component-path=src/components/About.tsx data-component-line=63
                                         data-component-file=About.tsx data-component-name=div
                                         data-component-content=%7B%22text%22%3A%2220%2B%22%2C%22className%22%3A%22text-6xl%20font-bold%20mb-4%22%7D
-                                        class="text-6xl font-bold mb-4">20+</div>
+                                        class="text-6xl font-bold mb-4">50+</div>
                                     <div data-lov-id=src/components/About.tsx:64:16 data-lov-name=div
                                         data-component-path=src/components/About.tsx data-component-line=64
                                         data-component-file=About.tsx data-component-name=div
@@ -2172,7 +2206,7 @@
                                             data-component-path=src/components/Projects.tsx data-component-line=79
                                             data-component-file=Projects.tsx data-component-name=h3
                                             data-component-content=%7B%22className%22%3A%22text-2xl%20font-bold%22%7D
-                                            class="text-2xl font-bold">Modern Office Complex</h3>
+                                            class="text-2xl font-bold">Roads & Drainage in Juraina</h3>
                                     </div>
                                 </div>
                                 <div data-lov-id=src/components/Projects.tsx:82:16 data-lov-name=div
@@ -2183,14 +2217,12 @@
                                         data-component-path=src/components/Projects.tsx data-component-line=83
                                         data-component-file=Projects.tsx data-component-name=p
                                         data-component-content=%7B%22className%22%3A%22text-gray-600%20leading-relaxed%22%7D
-                                        class="text-gray-600 leading-relaxed">A state-of-the-art office building
-                                        featuring sustainable design and modern amenities.</p><button
-                                        data-lov-id=src/components/Projects.tsx:86:18 data-lov-name=button
-                                        data-component-path=src/components/Projects.tsx data-component-line=86
-                                        data-component-file=Projects.tsx data-component-name=button
-                                        data-component-content=%7B%22text%22%3A%22View%20Details%20%E2%86%92%22%2C%22className%22%3A%22mt-4%20text-orange-500%20font-semibold%20hover%3Atext-orange-600%20transition-colors%20duration-300%22%7D
+                                        class="text-gray-600 leading-relaxed">Roads & Drainage in Juraina, Noaf & Qaraen
+                                        Areas ...</p>
+                                    <a href="https://national-contracting.com/projects/view/roads-drainage-in-juraina-noaf-qaraen-areas-stage-1-juraina-1"
                                         class="mt-4 text-orange-500 font-semibold hover:text-orange-600 transition-colors duration-300">View
-                                        Details →</button>
+                                        Details →
+                                    </a>
                                 </div>
                             </div>
                             <div data-lov-id=src/components/Projects.tsx:69:14 data-lov-name=div
@@ -2224,7 +2256,7 @@
                                             data-component-path=src/components/Projects.tsx data-component-line=79
                                             data-component-file=Projects.tsx data-component-name=h3
                                             data-component-content=%7B%22className%22%3A%22text-2xl%20font-bold%22%7D
-                                            class="text-2xl font-bold">Luxury Residential Villa</h3>
+                                            class="text-2xl font-bold">Construction of B+G+7</h3>
                                     </div>
                                 </div>
                                 <div data-lov-id=src/components/Projects.tsx:82:16 data-lov-name=div
@@ -2235,14 +2267,11 @@
                                         data-component-path=src/components/Projects.tsx data-component-line=83
                                         data-component-file=Projects.tsx data-component-name=p
                                         data-component-content=%7B%22className%22%3A%22text-gray-600%20leading-relaxed%22%7D
-                                        class="text-gray-600 leading-relaxed">Custom-designed luxury home with premium
-                                        finishes and smart home technology.</p><button
-                                        data-lov-id=src/components/Projects.tsx:86:18 data-lov-name=button
-                                        data-component-path=src/components/Projects.tsx data-component-line=86
-                                        data-component-file=Projects.tsx data-component-name=button
-                                        data-component-content=%7B%22text%22%3A%22View%20Details%20%E2%86%92%22%2C%22className%22%3A%22mt-4%20text-orange-500%20font-semibold%20hover%3Atext-orange-600%20transition-colors%20duration-300%22%7D
+                                        class="text-gray-600 leading-relaxed">Construction of B+G+7 Building in Plot No.
+                                        297 at Muwailah for Mrs. Mona Mahmood …</p>
+                                    <a href="https://national-contracting.com/projects/view/building-at-muwailah"
                                         class="mt-4 text-orange-500 font-semibold hover:text-orange-600 transition-colors duration-300">View
-                                        Details →</button>
+                                        Details →</a>
                                 </div>
                             </div>
                             <div data-lov-id=src/components/Projects.tsx:69:14 data-lov-name=div
@@ -2276,7 +2305,7 @@
                                             data-component-path=src/components/Projects.tsx data-component-line=79
                                             data-component-file=Projects.tsx data-component-name=h3
                                             data-component-content=%7B%22className%22%3A%22text-2xl%20font-bold%22%7D
-                                            class="text-2xl font-bold">Industrial Warehouse</h3>
+                                            class="text-2xl font-bold">B+G+3P + 15 </h3>
                                     </div>
                                 </div>
                                 <div data-lov-id=src/components/Projects.tsx:82:16 data-lov-name=div
@@ -2287,14 +2316,12 @@
                                         data-component-path=src/components/Projects.tsx data-component-line=83
                                         data-component-file=Projects.tsx data-component-name=p
                                         data-component-content=%7B%22className%22%3A%22text-gray-600%20leading-relaxed%22%7D
-                                        class="text-gray-600 leading-relaxed">Large-scale warehouse facility with
-                                        advanced logistics and storage solutions.</p><button
-                                        data-lov-id=src/components/Projects.tsx:86:18 data-lov-name=button
-                                        data-component-path=src/components/Projects.tsx data-component-line=86
-                                        data-component-file=Projects.tsx data-component-name=button
-                                        data-component-content=%7B%22text%22%3A%22View%20Details%20%E2%86%92%22%2C%22className%22%3A%22mt-4%20text-orange-500%20font-semibold%20hover%3Atext-orange-600%20transition-colors%20duration-300%22%7D
-                                        class="mt-4 text-orange-500 font-semibold hover:text-orange-600 transition-colors duration-300">View
-                                        Details →</button>
+                                        class="text-gray-600 leading-relaxed">B+G+3P + 15 Type Floors & Helipad Building
+                                        in Plot No. 172 Al Mahatta …</p>
+                                    <a href="https://national-contracting.com/projects/view/commercial-residential-building-al-qasimiya-sharjah"
+                                        class="mt-4 text-orange-500 font-semibold hover:text-orange-600 transition-colors duration-300">
+                                        View Details →
+                                    </a>
                                 </div>
                             </div>
                             <div data-lov-id=src/components/Projects.tsx:69:14 data-lov-name=div
@@ -2328,7 +2355,7 @@
                                             data-component-path=src/components/Projects.tsx data-component-line=79
                                             data-component-file=Projects.tsx data-component-name=h3
                                             data-component-content=%7B%22className%22%3A%22text-2xl%20font-bold%22%7D
-                                            class="text-2xl font-bold">Retail Shopping Center</h3>
+                                            class="text-2xl font-bold">Sharjah Institute of Technology </h3>
                                     </div>
                                 </div>
                                 <div data-lov-id=src/components/Projects.tsx:82:16 data-lov-name=div
@@ -2339,14 +2366,12 @@
                                         data-component-path=src/components/Projects.tsx data-component-line=83
                                         data-component-file=Projects.tsx data-component-name=p
                                         data-component-content=%7B%22className%22%3A%22text-gray-600%20leading-relaxed%22%7D
-                                        class="text-gray-600 leading-relaxed">Multi-tenant retail complex designed to
-                                        maximize foot traffic and sales.</p><button
-                                        data-lov-id=src/components/Projects.tsx:86:18 data-lov-name=button
-                                        data-component-path=src/components/Projects.tsx data-component-line=86
-                                        data-component-file=Projects.tsx data-component-name=button
-                                        data-component-content=%7B%22text%22%3A%22View%20Details%20%E2%86%92%22%2C%22className%22%3A%22mt-4%20text-orange-500%20font-semibold%20hover%3Atext-orange-600%20transition-colors%20duration-300%22%7D
+                                        class="text-gray-600 leading-relaxed">Sharjah Institute of Technology (Block -
+                                        E), Female Classroom Building ...</p>
+                                    <a href="https://national-contracting.com/projects/view/sharjah-institute-of-technology"
                                         class="mt-4 text-orange-500 font-semibold hover:text-orange-600 transition-colors duration-300">View
-                                        Details →</button>
+                                        Details →
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -2436,7 +2461,8 @@
                                                 data-component-path=src/components/Contact.tsx data-component-line=71
                                                 data-component-file=Contact.tsx data-component-name=p
                                                 data-component-content=%7B%22text%22%3A%22123%20Construction%20Ave%2C%20Builder%20City%2C%20BC%2012345%22%2C%22className%22%3A%22text-gray-300%22%7D
-                                                class=text-gray-300>123 Construction Ave, Builder City, BC 12345</p>
+                                                class=text-gray-300> Industrial Area 4, Po box. 46
+                                                Sharjah, UAE</p>
                                         </div>
                                     </div>
                                     <div data-lov-id=src/components/Contact.tsx:74:16 data-lov-name=div
@@ -2468,39 +2494,7 @@
                                                 data-component-path=src/components/Contact.tsx data-component-line=80
                                                 data-component-file=Contact.tsx data-component-name=p
                                                 data-component-content=%7B%22text%22%3A%22(555)%20123-4567%22%2C%22className%22%3A%22text-gray-300%22%7D
-                                                class=text-gray-300>(555) 123-4567</p>
-                                        </div>
-                                    </div>
-                                    <div data-lov-id=src/components/Contact.tsx:83:16 data-lov-name=div
-                                        data-component-path=src/components/Contact.tsx data-component-line=83
-                                        data-component-file=Contact.tsx data-component-name=div
-                                        data-component-content=%7B%22className%22%3A%22flex%20items-start%22%7D
-                                        class="flex items-start">
-                                        <div data-lov-id=src/components/Contact.tsx:84:18 data-lov-name=div
-                                            data-component-path=src/components/Contact.tsx data-component-line=84
-                                            data-component-file=Contact.tsx data-component-name=div
-                                            data-component-content=%7B%22className%22%3A%22w-12%20h-12%20bg-orange-500%20rounded-xl%20flex%20items-center%20justify-center%20mr-4%20flex-shrink-0%22%7D
-                                            class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                                            <div data-lov-id=src/components/Contact.tsx:85:20 data-lov-name=div
-                                                data-component-path=src/components/Contact.tsx data-component-line=85
-                                                data-component-file=Contact.tsx data-component-name=div
-                                                data-component-content=%7B%22className%22%3A%22w-6%20h-6%20bg-white%20rounded%22%7D
-                                                class="w-6 h-6 bg-white rounded"></div>
-                                        </div>
-                                        <div data-lov-id=src/components/Contact.tsx:87:18 data-lov-name=div
-                                            data-component-path=src/components/Contact.tsx data-component-line=87
-                                            data-component-file=Contact.tsx data-component-name=div
-                                            data-component-content=%7B%7D>
-                                            <h4 data-lov-id=src/components/Contact.tsx:88:20 data-lov-name=h4
-                                                data-component-path=src/components/Contact.tsx data-component-line=88
-                                                data-component-file=Contact.tsx data-component-name=h4
-                                                data-component-content=%7B%22text%22%3A%22Email%22%2C%22className%22%3A%22text-white%20font-semibold%20mb-1%22%7D
-                                                class="text-white font-semibold mb-1">Email</h4>
-                                            <p data-lov-id=src/components/Contact.tsx:89:20 data-lov-name=p
-                                                data-component-path=src/components/Contact.tsx data-component-line=89
-                                                data-component-file=Contact.tsx data-component-name=p
-                                                data-component-content=%7B%22text%22%3A%22info%40buildcraft.com%22%2C%22className%22%3A%22text-gray-300%22%7D
-                                                class=text-gray-300>info@buildcraft.com</p>
+                                                class=text-gray-300>+971 653 333 23</p>
                                         </div>
                                     </div>
                                     <div data-lov-id=src/components/Contact.tsx:92:16 data-lov-name=div
@@ -2537,7 +2531,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div data-lov-id=src/components/Contact.tsx:104:12 data-lov-name=div
+                            {{-- <div data-lov-id=src/components/Contact.tsx:104:12 data-lov-name=div
                                 data-component-path=src/components/Contact.tsx data-component-line=104
                                 data-component-file=Contact.tsx data-component-name=div
                                 data-component-content=%7B%22className%22%3A%22bg-white%20rounded-2xl%20p-8%22%7D
@@ -2629,7 +2623,7 @@
                                         class="w-full bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl">Send
                                         Message</button>
                                 </form>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
