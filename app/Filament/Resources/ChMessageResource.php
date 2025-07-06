@@ -19,6 +19,7 @@ class ChMessageResource extends Resource
     protected static ?string $model = ChMessage::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static bool $shouldRegisterNavigation = true;
 
     public static function form(Form $form): Form
     {
