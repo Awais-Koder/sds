@@ -46,6 +46,7 @@ class OutgoingResource extends Resource
                     ->preload(5)
                     ->required(),
                 Forms\Components\FileUpload::make('file')
+                    ->preserveFilenames()
                     ->downloadable()
                     ->label('File Name'),
                 Forms\Components\TextInput::make('sds_no')

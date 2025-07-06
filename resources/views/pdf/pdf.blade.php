@@ -1113,168 +1113,77 @@
                     style="margin-bottom: 5px;grid-template-columns: repeat(3, minmax(0, 1fr));">
 
                     @if(!empty(App\Services\DefaultService::getSetings()->pdf_images))
-                    @foreach (json_decode(App\Services\DefaultService::getSetings()?->pdf_images) as $image)
+                    @php
+                    $labels = ['Client', 'Consultant', 'Contractor'];
+                    $images = json_decode(App\Services\DefaultService::getSetings()?->pdf_images);
+                    @endphp
+                    @foreach ($images as $index => $image)
                     <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
-                        <div class="p-0 pt-0 text-center  ">
-                            <div class="flex items-center justify-center mb-2 ">
-                                <img src="{{Storage::url($image)}}" alt="Client Logo"
-                                    style="object-fit: cover;width: 100%;height: 70px;">
+                        <span style="border-bottom: 1px solid black">{{ $labels[$index] ?? '' }}</span>
+                        <div class="p-0 pt-0 text-center">
+                            <div class="flex items-center justify-center mb-2">
+                                <img src="{{ Storage::url($image) }}" alt="{{ $labels[$index] ?? 'Logo' }}"
+                                    style="object-fit: cover; width: 100%; height: 70px;">
                             </div>
                         </div>
                     </div>
                     @endforeach
+
                     @endif
                 </div>
-                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:53:6 data-lov-name=Card
-                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=53
-                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=Card
-                    data-component-content=%7B%22className%22%3A%22mb-1%22%7D
-                    class="rounded-lg border bg-card text-card-foreground shadow-sm mb-0" style="margin-bottom: 5px">
-                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:54:8 data-lov-name=CardContent
-                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=54
-                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardContent
-                        data-component-content=%7B%22className%22%3A%22pt-4%22%7D class="px-2 pt-1">
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm mb-0" style="margin-bottom: 5px">
+                    <div class="px-2 pt-1">
                         <div class="text-center" style="margin-bottom: 5px;background: #cfcdcd">
-                            <h2 class="font-bold text-sm">PROJECT : {{$project->name ?? ''}}</h2>
+                            <h2 class="font-bold text-sm text-center">{!!$project->name ?? ''!!}</h2>
                         </div>
-                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:63:10 data-lov-name=div
-                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=63
-                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
-                            data-component-content=%7B%22className%22%3A%22grid%20grid-cols-2%20gap-8%22%7D
-                            class="grid grid-cols-2 gap-8">
-                            <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:64:12 data-lov-name=div
-                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=64
-                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
-                                data-component-content=%7B%22className%22%3A%22space-y-2%22%7D class=space-y-2>
-                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:65:14 data-lov-name=div
-                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=65
-                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
-                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
-                                    class="flex items-center space-x-2">
-                                    <input type=checkbox role=checkbox aria-checked=false data-state=unchecked value=on
-                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:66:16 data-lov-name=Checkbox
-                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                        data-component-line=66 data-component-file=ShopDrawingSubmittal.tsx
-                                        data-component-name=Checkbox data-component-content=%7B%7D
+                        <div class="grid grid-cols-2 gap-1">
+                            <div class=space-y-2>
+                                <div class="flex items-center space-x-2">
+                                    <input type=checkbox
                                         class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed "
                                         id=new-submittal @checked($project->new_submittel)>
-                                    <label data-lov-id=src/components/ShopDrawingSubmittal.tsx:67:16 data-lov-name=label
-                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                        data-component-line=67 data-component-file=ShopDrawingSubmittal.tsx
-                                        data-component-name=label
-                                        data-component-content=%7B%22text%22%3A%22NEW%20SUBMITTAL%22%2C%22className%22%3A%22text-sm%22%7D
-                                        for=new-submittal class=text-sm>NEW SUBMITTAL
+                                    <label for=new-submittal class=text-sm>NEW SUBMITTAL
                                     </label>
                                 </div>
-                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:69:14 data-lov-name=div
-                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=69
-                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
-                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
-                                    class="flex items-center space-x-2">
-                                    <input type=checkbox role=checkbox aria-checked=false data-state=unchecked value=on
-                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:70:16 data-lov-name=Checkbox
-                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                        data-component-line=70 data-component-file=ShopDrawingSubmittal.tsx
-                                        data-component-name=Checkbox data-component-content=%7B%7D
+                                <div class="flex items-center space-x-2">
+                                    <input type=checkbox role=checkbox
                                         class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                                         id=re-submittal @checked($project->re_submittel)>
-                                    <label data-lov-id=src/components/ShopDrawingSubmittal.tsx:71:16 data-lov-name=label
-                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                        data-component-line=71 data-component-file=ShopDrawingSubmittal.tsx
-                                        data-component-name=label
-                                        data-component-content=%7B%22text%22%3A%22RE-SUBMITTAL%22%2C%22className%22%3A%22text-sm%22%7D
-                                        for=re-submittal class=text-sm>RE-SUBMITTAL</label>
+                                    <label for=re-submittal class=text-sm>RE-SUBMITTAL</label>
                                 </div>
-                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:73:14 data-lov-name=div
-                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=73
-                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
-                                    data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-2%22%7D
-                                    class="flex items-center space-x-2">
-                                    <input type=checkbox role=checkbox aria-checked=false data-state=unchecked value=on
-                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:74:16 data-lov-name=Checkbox
-                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                        data-component-line=74 data-component-file=ShopDrawingSubmittal.tsx
-                                        data-component-name=Checkbox data-component-content=%7B%7D
+                                <div class="flex items-center space-x-2">
+                                    <input type=checkbox role=checkbox
                                         class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                                         id=additional-copies @checked($project->additional_copies)>
-                                    <label data-lov-id=src/components/ShopDrawingSubmittal.tsx:75:16 data-lov-name=label
-                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                        data-component-line=75 data-component-file=ShopDrawingSubmittal.tsx
-                                        data-component-name=label
-                                        data-component-content=%7B%22text%22%3A%22ADDITIONAL%20COPIES%22%2C%22className%22%3A%22text-sm%22%7D
-                                        for=additional-copies class=text-sm>ADDITIONAL COPIES</label>
+                                    <label for=additional-copies class=text-sm>ADDITIONAL COPIES</label>
                                 </div>
                             </div>
-                            <div class=space-y-2>
+                            <div class=space-y-2 style="position: relative">
                                 <div class="flex justify-between">
                                     <span class="text-sm font-medium">REF No:</span>
-                                    <span class=text-sm>{{$project->ref_no}}
+                                    <span class=text-sm >{{$project->ref_no}}
                                     </span>
                                     <span class="text-sm font-medium">Rev:</span>
-                                    <span class=text-sm>{{$project->cycle ?? ''}}</span>
+                                    <span class=text-sm >{{$project->cycle ?? ''}}</span>
                                 </div>
-                                <div class="flex justify-between">
+                                <div class="flex justify-end border" style="display: flex;justify-content: flex-end;position: absolute;right: 0;top: 10px">
+                                    <img src="{{asset('qrcode.jpeg')}}" alt="qrcode" width="60px">
+                                </div>
+                                <div class="flex justify-start ">
                                     <span class="text-sm font-medium">DATE:</span>
-                                    <span class=text-sm>{{Carbon\Carbon::parse($project->date)->format('d-m-y')}}</span>
+                                    <span class="text-sm" style="margin-left: 10px;">{{Carbon\Carbon::parse($project->date)->format('d-m-y')}}</span>
                                 </div>
-                                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:88:14 data-lov-name=div
-                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=88
-                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
-                                    data-component-content=%7B%22className%22%3A%22flex%20justify-between%20items-center%22%7D
-                                    class="flex justify-between items-center"><span
-                                        data-lov-id=src/components/ShopDrawingSubmittal.tsx:89:16 data-lov-name=span
-                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                        data-component-line=89 data-component-file=ShopDrawingSubmittal.tsx
-                                        data-component-name=span
-                                        data-component-content=%7B%22text%22%3A%22Soft%20Copy%20attached%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
-                                        class="text-sm font-medium">Soft Copy attached:</span>
-                                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:90:16 data-lov-name=div
-                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                        data-component-line=90 data-component-file=ShopDrawingSubmittal.tsx
-                                        data-component-name=div
-                                        data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-4%22%7D
-                                        class="flex items-center space-x-4">
-                                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:91:18 data-lov-name=div
-                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                            data-component-line=91 data-component-file=ShopDrawingSubmittal.tsx
-                                            data-component-name=div
-                                            data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-1%22%7D
-                                            class="flex items-center space-x-1">
-                                            <span data-lov-id=src/components/ShopDrawingSubmittal.tsx:92:20
-                                                data-lov-name=span
-                                                data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                                data-component-line=92 data-component-file=ShopDrawingSubmittal.tsx
-                                                data-component-name=span
-                                                data-component-content=%7B%22text%22%3A%22YES%22%2C%22className%22%3A%22text-sm%22%7D
-                                                class=text-sm>YES</span>
-                                            <input type=checkbox role=checkbox aria-checked=false data-state=unchecked
-                                                value=on data-lov-id=src/components/ShopDrawingSubmittal.tsx:93:20
-                                                data-lov-name=Checkbox
-                                                data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                                data-component-line=93 data-component-file=ShopDrawingSubmittal.tsx
-                                                data-component-name=Checkbox data-component-content=%7B%7D
+                                <div class="flex justify-start items-center">
+                                    <span class="text-sm font-medium">Soft Copy attached:</span>
+                                    <div class="flex items-center space-x-2" style="margin-left: 10px;">
+                                        <div class="flex items-center space-x-1">
+                                            <span class=text-sm>YES</span>
+                                            <input type=checkbox
                                                 class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                                                 @checked($project->soft_copy)>
                                         </div>
-                                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:95:18 data-lov-name=div
-                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                            data-component-line=95 data-component-file=ShopDrawingSubmittal.tsx
-                                            data-component-name=div
-                                            data-component-content=%7B%22className%22%3A%22flex%20items-center%20space-x-1%22%7D
-                                            class="flex items-center space-x-1"><span
-                                                data-lov-id=src/components/ShopDrawingSubmittal.tsx:96:20
-                                                data-lov-name=span
-                                                data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                                data-component-line=96 data-component-file=ShopDrawingSubmittal.tsx
-                                                data-component-name=span
-                                                data-component-content=%7B%22text%22%3A%22NO%22%2C%22className%22%3A%22text-sm%22%7D
-                                                class=text-sm>NO</span>
-                                            <input type=checkbox role=checkbox aria-checked=false data-state=unchecked
-                                                value=on data-lov-id=src/components/ShopDrawingSubmittal.tsx:97:20
-                                                data-lov-name=Checkbox
-                                                data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                                data-component-line=97 data-component-file=ShopDrawingSubmittal.tsx
-                                                data-component-name=Checkbox data-component-content=%7B%7D
+                                        <div class="flex items-center space-x-1"><span class=text-sm>NO</span>
+                                            <input type=checkbox
                                                 class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                                                 @checked(!$project->soft_copy)>
                                         </div>
@@ -1284,75 +1193,24 @@
                         </div>
                     </div>
                 </div>
-                <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:107:6 data-lov-name=Card
-                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=107
-                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=Card
-                    data-component-content=%7B%22className%22%3A%22mb-1%22%7D
-                    class="rounded-lg border bg-card text-card-foreground shadow-sm" style="margin-bottom: 5px;">
-                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:108:8 data-lov-name=CardHeader
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm" style="margin-bottom: 5px;">
+                    <div
                         class="flex flex-col space-y-1.5 p-1" style="background: #cfcdcd">
-                        <h3 data-lov-id=src/components/ShopDrawingSubmittal.tsx:109:10 data-lov-name=h3
-                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=109
-                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=h3
-                            data-component-content=%7B%22text%22%3A%22SHOP%20DRAWING%20SUBMITTAL%22%2C%22className%22%3A%22text-center%20font-bold%22%7D
-                            class="text-center font-bold">SHOP DRAWING SUBMITTAL</h3>
+                        <h3 class="text-center font-bold">SHOP DRAWING SUBMITTAL</h3>
                     </div>
-                    <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:111:8 data-lov-name=CardContent
-                        data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=111
-                        data-component-file=ShopDrawingSubmittal.tsx data-component-name=CardContent
-                        data-component-content=%7B%22className%22%3A%22p-0%22%7D class=p-0>
-                        <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:112:10 data-lov-name=div
-                            data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=112
-                            data-component-file=ShopDrawingSubmittal.tsx data-component-name=div
-                            data-component-content=%7B%22className%22%3A%22overflow-x-auto%22%7D class=overflow-x-auto>
-                            <table data-lov-id=src/components/ShopDrawingSubmittal.tsx:113:12 data-lov-name=table
-                                data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=113
-                                data-component-file=ShopDrawingSubmittal.tsx data-component-name=table
-                                data-component-content=%7B%22className%22%3A%22w-full%20border-collapse%22%7D
-                                class="w-full border-collapse">
-                                <thead data-lov-id=src/components/ShopDrawingSubmittal.tsx:114:14 data-lov-name=thead
-                                    data-component-path=src/components/ShopDrawingSubmittal.tsx data-component-line=114
-                                    data-component-file=ShopDrawingSubmittal.tsx data-component-name=thead
-                                    data-component-content=%7B%7D>
+                    <div class=p-0>
+                        <div class=overflow-x-auto>
+                            <table class="w-full border-collapse">
+                                <thead >
 
-                                    <tr data-lov-id=src/components/ShopDrawingSubmittal.tsx:115:16 data-lov-name=tr
-                                        data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                        data-component-line=115 data-component-file=ShopDrawingSubmittal.tsx
-                                        data-component-name=tr
-                                        data-component-content=%7B%22className%22%3A%22bg-gray-100%22%7D
-                                        class=bg-gray-100>
-                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:116:18 data-lov-name=th
-                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                            data-component-line=116 data-component-file=ShopDrawingSubmittal.tsx
-                                            data-component-name=th
-                                            data-component-content=%7B%22text%22%3A%22DESCRIPTION%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
-                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">
+                                    <tr class=bg-gray-100>
+                                        <th class="border border-gray-300 px-2 py-1 text-xs font-bold">
                                             DESCRIPTION
                                         </th>
-                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:117:18 data-lov-name=th
-                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                            data-component-line=117 data-component-file=ShopDrawingSubmittal.tsx
-                                            data-component-name=th
-                                            data-component-content=%7B%22text%22%3A%22Drawing%20No.%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
-                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">Drawing No.
-                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:118:18 data-lov-name=th
-                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                            data-component-line=118 data-component-file=ShopDrawingSubmittal.tsx
-                                            data-component-name=th
-                                            data-component-content=%7B%22text%22%3A%22No%20of%20copies%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
-                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">No of copies
-                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:120:18 data-lov-name=th
-                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                            data-component-line=120 data-component-file=ShopDrawingSubmittal.tsx
-                                            data-component-name=th
-                                            data-component-content=%7B%22text%22%3A%22A%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
-                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">Status
-                                        <th data-lov-id=src/components/ShopDrawingSubmittal.tsx:121:18 data-lov-name=th
-                                            data-component-path=src/components/ShopDrawingSubmittal.tsx
-                                            data-component-line=121 data-component-file=ShopDrawingSubmittal.tsx
-                                            data-component-name=th
-                                            data-component-content=%7B%22text%22%3A%22AN%22%2C%22className%22%3A%22border%20border-gray-300%20px-2%20py-1%20text-xs%20font-bold%22%7D
-                                            class="border border-gray-300 px-2 py-1 text-xs font-bold">Rev
+                                        <th class="border border-gray-300 px-2 py-1 text-xs font-bold">Drawing No.
+                                        <th class="border border-gray-300 px-2 py-1 text-xs font-bold">No of copies
+                                        <th class="border border-gray-300 px-2 py-1 text-xs font-bold">Status
+                                        <th class="border border-gray-300 px-2 py-1 text-xs font-bold">Rev
                                 <tbody>
                                     @foreach ($project->incomings as $incoming)
                                     <tr>
@@ -1366,7 +1224,18 @@
                                             {{$incoming->no_of_copies}}
                                         </td>
                                         <td class="border border-gray-300 px-2 py-1 text-xs text-center">
-                                            {{Str::of($incoming->status)->replace('_', ' ')->title()}}
+                                            @php
+                                            $statusMap = [
+                                            'approved' => 'A',
+                                            'approved_as_noted' => 'AN',
+                                            'revise_resubmit_as_noted' => 'RR',
+                                            'rejected' => 'R',
+                                            'submitted' => 'S',
+                                            ];
+                                            @endphp
+
+                                            {{ $statusMap[$incoming->status] ?? Str::of($incoming->status)->replace('_',
+                                            ' ')->title() }}
                                         </td>
                                         <td class="border border-gray-300 px-2 py-1 text-xs text-center">
                                             {{$incoming->cycle}}
@@ -1378,8 +1247,7 @@
                         <div class="px-4 text-xs" style="padding-top: 5px">
                             <p>
                                 <strong>Consultant's Approval Legend:</strong> A (Approved), AN (Approved As Noted), RR
-                                (Revise &amp;
-                                Resubmit).
+                                (Revise &amp; Resubmit) , R (Rejected) , S (Submitted).
                             </p>
                         </div>
                         <div class="shrink-0 bg-border h-[1px] w-full my-2"></div>
@@ -1651,7 +1519,8 @@
                                         data-component-line=259 data-component-file=ShopDrawingSubmittal.tsx
                                         data-component-name=span
                                         data-component-content=%7B%22text%22%3A%22Date%3A%22%2C%22className%22%3A%22text-sm%20font-medium%22%7D
-                                        class="text-sm font-medium">Date: {{Carbon\Carbon::parse($project->mark_by_actioner)->format('d-m-y') ??
+                                        class="text-sm font-medium">Date:
+                                        {{Carbon\Carbon::parse($project->mark_by_actioner)->format('d-m-y') ??
                                         ''}}</span>
                                     <div data-lov-id=src/components/ShopDrawingSubmittal.tsx:260:16 data-lov-name=div
                                         data-component-path=src/components/ShopDrawingSubmittal.tsx

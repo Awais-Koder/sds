@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\EditLogin;
 use Filament\Http\Middleware\Authenticate;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -18,17 +19,18 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Monzer\FilamentChatifyIntegration\ChatifyPlugin;
 
 class AppPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-        ->spa()
+            ->spa()
             ->default()
             ->id('app')
             ->path('app')
-            ->login()
+            ->login(EditLogin::class)
             ->colors([
                 'primary' => Color::Amber,
                 'zinc' => Color::Zinc,
@@ -43,9 +45,7 @@ class AppPanelProvider extends PanelProvider
                 Pages\Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-            ->widgets([
-                
-            ])
+            ->widgets([])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -59,6 +59,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
+                ChatifyPlugin::make(),
             ])
             ->authMiddleware([
                 Authenticate::class,

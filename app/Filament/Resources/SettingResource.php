@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
+use Filament\Forms\Components\RichEditor;
 
 class SettingResource extends Resource
 {
@@ -58,8 +59,8 @@ class SettingResource extends Resource
                     ->downloadable()
                     ->panelLayout('grid')
                     ->image(),
-                     Forms\Components\TextInput::make('project_name')
-                     ->placeholder('Project Name')
+                RichEditor::make('project_name')
+                    ->placeholder('Project Name')
                     ->maxLength(255),
             ]);
     }
@@ -69,6 +70,8 @@ class SettingResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('project_name')
+                ->limit(50)
+                    ->html()
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('signature_image'),
                 Tables\Columns\TextColumn::make('created_at')
@@ -89,7 +92,7 @@ class SettingResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                    ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
+                        ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
                 ]),
             ]);
     }

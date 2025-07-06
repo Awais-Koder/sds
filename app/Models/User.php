@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -56,8 +57,12 @@ class User extends Authenticatable
             ->implode('');
     }
 
-    // public function roles()
-    // {
-    //     return $this->hasMany(Role::class);
-    // }
+    public function from()
+    {
+        return $this->HasMany(ChMessage::class , 'from_id');
+    }
+    public function to()
+    {
+        return $this->HasMany(ChMessage::class , 'to_id');
+    }
 }

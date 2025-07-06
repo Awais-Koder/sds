@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Auth;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
+use Filament\Forms\Components\RichEditor;
 
 class SubmittelResource extends Resource
 {
@@ -56,7 +57,7 @@ class SubmittelResource extends Resource
                                 }
                             })
                             ->label('Re Submittel of'),
-                        Forms\Components\Textarea::make('name')
+                        RichEditor::make('name')
                             ->default(Setting::first()?->project_name ?? '')
                             ->required()
                             ->placeholder('Enter the name of the submittel'),
@@ -150,6 +151,7 @@ class SubmittelResource extends Resource
                                     ->label('Upload File')
                                     ->imageEditor()
                                     ->required()
+                                    ->preserveFilenames()
                                     ->acceptedFileTypes(['application/pdf', 'image/*']), // 10 MB,
                                 Forms\Components\TextInput::make('no_of_copies')
                                     ->placeholder('No of Copies')
