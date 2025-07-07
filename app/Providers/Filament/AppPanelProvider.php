@@ -59,7 +59,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
-                ChatifyPlugin::make(),
+                // ChatifyPlugin::make(),
             ])
             ->authMiddleware([
                 Authenticate::class,
