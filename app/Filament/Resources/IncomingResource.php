@@ -25,6 +25,7 @@ class IncomingResource extends Resource
     protected static ?string $model = Incoming::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-arrow-trending-down';
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {

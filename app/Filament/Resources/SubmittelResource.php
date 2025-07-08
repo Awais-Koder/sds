@@ -89,17 +89,16 @@ class SubmittelResource extends Resource
                                 }
                             }),
                         Forms\Components\Toggle::make('additional_copies'),
-                        Forms\Components\Toggle::make('soft_copy'),
+                        Forms\Components\Toggle::make('soft_copy')
+                            ->reactive(),
                         Forms\Components\DateTimePicker::make('date')
                             ->placeholder('Select the date of the submittel')
-                            ->columnSpanFull()
                             ->closeOnDateSelection(),
                         Forms\Components\Select::make('status')
                             ->required()
                             ->label('Select status')
                             ->reactive()
                             ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner', 'editor']))
-                            ->columnSpanFull()
                             ->options(function () {
                                 $user = Auth::user();
                                 if ($user->hasRole('editor')) {
@@ -127,11 +126,14 @@ class SubmittelResource extends Resource
                             })->default('approved'),
                         Forms\Components\Textarea::make('comments')
                             ->reactive()
-                            ->required(fn($get) => !in_array($get('status'), ['approved', 'submitted', 'draft']))
-                            ->visible(fn($get) => !in_array($get('status'), ['approved', 'submitted', 'draft']))
                             ->placeholder('Enter comments here')
-                            ->columnSpanFull()
                             ->rows(10),
+                        Forms\Components\FileUpload::make('soft_copy_file')
+                            ->label('Soft Copy (zip or rar)')
+                            ->reactive()
+                            ->required(fn($get) => $get('soft_copy'))
+                            ->acceptedFileTypes(['application/zip', 'application/x-rar-compressed', '.zip', '.rar'])
+                            ->preserveFilenames(),
                     ])
                     ->collapsible()
                     ->columns(2),
@@ -165,28 +167,28 @@ class SubmittelResource extends Resource
                                     ->placeholder('Enter a brief description')
                                     ->label('Description ')
                                     ->maxLength(255),
-                                Forms\Components\Select::make('status')
-                                    ->reactive()
+                                // Forms\Components\Select::make('status')
+                                //     ->reactive()
 
-                                    ->options(function () {
-                                        $user = Auth::user();
-                                        if ($user->hasRole('editor')) {
-                                            return [
-                                                'submitted' => 'Submitted',
-                                                'draft' => 'Draft',
-                                            ];
-                                        } elseif ($user->hasRole('super_admin')) {
-                                            return [
-                                                'submitted' => 'Submitted',
-                                                'under_review' => 'Under review',
-                                                'revise_and_resubmit' => 'Revise and resubmit',
-                                                'draft' => 'Draft',
-                                            ];
-                                        } else {
-                                            return [];
-                                        }
-                                    })
-                                    ->default(fn($get) => $get('../../status') == 'draft' ? 'draft' : null),
+                                //     ->options(function () {
+                                //         $user = Auth::user();
+                                //         if ($user->hasRole('editor')) {
+                                //             return [
+                                //                 'submitted' => 'Submitted',
+                                //                 'draft' => 'Draft',
+                                //             ];
+                                //         } elseif ($user->hasRole('super_admin')) {
+                                //             return [
+                                //                 'submitted' => 'Submitted',
+                                //                 'under_review' => 'Under review',
+                                //                 'revise_and_resubmit' => 'Revise and resubmit',
+                                //                 'draft' => 'Draft',
+                                //             ];
+                                //         } else {
+                                //             return [];
+                                //         }
+                                //     })
+                                //     ->default(fn($get) => $get('../../status') == 'draft' ? 'draft' : null),
                                 Forms\Components\TextInput::make('cycle')
                                     ->label('Revision')
                                     ->reactive()
@@ -199,17 +201,19 @@ class SubmittelResource extends Resource
 
                             ->addActionLabel('Add drawing')
                             ->cloneable()
-                            ->columns(6)
+                            ->columns(5)
                             ->collapsible()
                             ->defaultItems(1)
                             ->mutateRelationshipDataBeforeCreateUsing(function (array $data) {
                                 $data['submitted_by'] = auth()->id();
                                 $data['submitted_time'] = now();
+                                $data['status'] = 'submitted';
                                 return $data;
                             })
                             ->mutateRelationshipDataBeforeSaveUsing(function (array $data): array {
                                 $data['submitted_by'] = auth()->id();
                                 $data['submitted_time'] = now();
+                                $data['status'] = 'submitted';
                                 return $data;
                             }),
                     ])
@@ -237,6 +241,8 @@ class SubmittelResource extends Resource
                 Tables\Columns\IconColumn::make('additional_copies')
                     ->boolean(),
                 Tables\Columns\IconColumn::make('soft_copy')
+                    ->boolean(),
+                Tables\Columns\IconColumn::make('sent_to_actioner')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('date')
                     ->dateTime('d M Y, h:i A')
@@ -303,52 +309,74 @@ class SubmittelResource extends Resource
                             ExportFormat::Xlsx,
                             ExportFormat::Csv,
                         ]),
-                    Tables\Actions\BulkAction::make('send_by_dc_to_actioner')
-                        ->tooltip('Send To Actioner')
-                        ->label('Mark Date')
+                    // Tables\Actions\BulkAction::make('send_by_dc_to_actioner')
+                    //     ->tooltip('Send To Actioner')
+                    //     ->label('Mark Date')
+                    //     ->color('success')
+                    //     ->icon('heroicon-o-check')
+                    //     ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
+                    //     ->requiresConfirmation()
+                    //     ->action(function (Collection $records) {
+                    //         foreach ($records as $record) {
+                    //             if (is_null($record->send_by_dc_to_actioner)) {
+                    //                 $record->update([
+                    //                     'send_by_dc_to_actioner' => now(),
+                    //                 ]);
+                    //             }
+                    //         }
+                    //     })
+                    //     ->after(function () {
+                    //         Notification::make('mark_date')
+                    //             ->title('Mark Date')
+                    //             ->body('Selected submittals have been updated with the dispatch time to the actioner.')
+                    //             ->success()
+                    //             ->send();
+                    //     }),
+                    // Tables\Actions\BulkAction::make('mark_by_actioner')
+                    //     ->tooltip('Mark By Actioner')
+                    //     ->label('Mark Date')
+                    //     ->color('teal')
+                    //     ->icon('heroicon-o-check')
+                    //     ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner']))
+                    //     ->requiresConfirmation()
+                    //     ->action(function (Collection $records) {
+                    //         foreach ($records as $record) {
+                    //             if (is_null($record->mark_by_actioner)) {
+                    //                 $record->update([
+                    //                     'mark_by_actioner' => now(),
+                    //                 ]);
+                    //             }
+                    //         }
+                    //     })
+                    //     ->after(function () {
+                    //         Notification::make('mark_date')
+                    //             ->title('Mark Date')
+                    //             ->body('Selected submittals have been updated with the final decision.')
+                    //             ->success()
+                    //             ->send();
+                    //     })
+
+                    Tables\Actions\BulkAction::make('sendToActioner')
+                        ->label('Send To Actioner')
+                        ->icon('heroicon-o-paper-airplane')
                         ->color('success')
-                        ->icon('heroicon-o-check')
+                        ->action(function (Collection $records) {
+                            $ids = $records->modelKeys();
+                            Submittel::whereIn('id', $ids)->update([
+                                'sent_to_actioner' => 1,
+                                'send_by_dc_to_actioner' => now(),
+                            ]);
+                        })
+                        ->after(function () {
+                            Notification::make('Submittle(s) Dispatched')
+                                ->title('Submittle(s) Dispatched')
+                                ->body('The selected submittle(s) have been successfully dispatched to the actioner.')
+                                ->success()
+                                ->send();
+                        })
+                        ->requiresConfirmation()
                         ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
-                        ->requiresConfirmation()
-                        ->action(function (Collection $records) {
-                            foreach ($records as $record) {
-                                if (is_null($record->send_by_dc_to_actioner)) {
-                                    $record->update([
-                                        'send_by_dc_to_actioner' => now(),
-                                    ]);
-                                }
-                            }
-                        })
-                        ->after(function () {
-                            Notification::make('mark_date')
-                                ->title('Mark Date')
-                                ->body('Selected submittals have been updated with the dispatch time to the actioner.')
-                                ->success()
-                                ->send();
-                    }),
-                    Tables\Actions\BulkAction::make('mark_by_actioner')
-                        ->tooltip('Mark By Actioner')
-                        ->label('Mark Date')
-                        ->color('teal')
-                        ->icon('heroicon-o-check')
-                        ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner']))
-                        ->requiresConfirmation()
-                        ->action(function (Collection $records) {
-                            foreach ($records as $record) {
-                                if (is_null($record->mark_by_actioner)) {
-                                    $record->update([
-                                        'mark_by_actioner' => now(),
-                                    ]);
-                                }
-                            }
-                        })
-                        ->after(function () {
-                            Notification::make('mark_date')
-                                ->title('Mark Date')
-                                ->body('Selected submittals have been updated with the final decision.')
-                                ->success()
-                                ->send();
-                    })
+                        ->deselectRecordsAfterCompletion(),
                 ]),
             ]);
     }

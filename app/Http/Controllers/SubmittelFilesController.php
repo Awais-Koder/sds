@@ -19,15 +19,26 @@ class SubmittelFilesController extends Controller
         $zip = new ZipArchive;
 
         if ($zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+            // Add outgoing files
             foreach ($submittel->outgoings as $outgoing) {
-                $fileName = $outgoing->file; // e.g. "01JYR383T0NJG836R7MVRZNPXF.pdf"
+                $fileName = $outgoing->file;
                 $filePath = Storage::disk('public')->path($fileName);
 
                 if (file_exists($filePath)) {
-                    // Optional: Give readable name inside zip
-                    $zip->addFile($filePath, basename($fileName));
+                    $zip->addFile($filePath, 'outgoings/' . basename($fileName));
                 }
             }
+
+            // 🔥 Add soft_copy_file if exists
+            if (!empty($submittel->soft_copy_file)) {
+                $softCopyPath = Storage::disk('public')->path($submittel->soft_copy_file);
+
+                if (file_exists($softCopyPath)) {
+                    // Optional: rename inside ZIP to make it clear
+                    $zip->addFile($softCopyPath, 'soft-copy/' . basename($submittel->soft_copy_file));
+                }
+            }
+
             $zip->close();
 
             return response()->download($zipFilePath);

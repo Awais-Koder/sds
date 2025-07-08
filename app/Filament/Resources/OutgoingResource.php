@@ -49,9 +49,9 @@ class OutgoingResource extends Resource
                     ->preserveFilenames()
                     ->downloadable()
                     ->label('File Name'),
-                Forms\Components\TextInput::make('sds_no')
-                    ->placeholder('Enter SDS Number')
-                    ->maxLength(255),
+                // Forms\Components\TextInput::make('sds_no')
+                //     ->placeholder('Enter SDS Number')
+                //     ->maxLength(255),
                 Forms\Components\TextInput::make('no_of_copies')
                     ->placeholder('No of Copies')
                     ->numeric()
@@ -82,6 +82,7 @@ class OutgoingResource extends Resource
                         }
                     }),
                 Forms\Components\TextInput::make('cycle')
+                    ->label('revision')
                     ->default(0)
                     ->numeric(),
             ]);
@@ -118,6 +119,7 @@ class OutgoingResource extends Resource
                     }),
                 Tables\Columns\TextColumn::make('cycle')
                     ->default(0)
+                    ->label('Revision')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -183,36 +185,36 @@ class OutgoingResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
                         ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
-                    Tables\Actions\BulkAction::make('sendToActioner')
-                        ->label('Send To Actioner')
-                        ->icon('heroicon-o-paper-airplane')
-                        ->color('success')
-                        ->action(function (Collection $records) {
-                            $ids = $records->pluck('id')->toArray();
+                    // Tables\Actions\BulkAction::make('sendToActioner')
+                    //     ->label('Send To Actioner')
+                    //     ->icon('heroicon-o-paper-airplane')
+                    //     ->color('success')
+                    //     ->action(function (Collection $records) {
+                    //         $ids = $records->pluck('id')->toArray();
 
-                            $outgoings = Outgoing::whereIn('id', $ids)->get();
+                    //         $outgoings = Outgoing::whereIn('id', $ids)->get();
 
-                            $incomingData = $outgoings->map(function ($outgoing) {
-                                return collect($outgoing->toArray()) // 🔥 RETURN is required here
-                                    ->except(['id', 'file_location'])
-                                    ->merge([
-                                        'status' => 'under_review',
-                                        'created_at' => now(),
-                                        'updated_at' => now(),
-                                    ])
-                                    ->toArray();
-                            })->toArray();
-                            Incoming::insert($incomingData);
-                        })->after(function () {
-                            Notification::make('Files Dispatched')
-                                ->title('Files Dispatched')
-                                ->body('The selected files have been successfully dispatched to the actioner.')
-                                ->success()
-                                ->send();
-                        })
-                        ->requiresConfirmation()
-                        ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
-                        ->deselectRecordsAfterCompletion(),
+                    //         $incomingData = $outgoings->map(function ($outgoing) {
+                    //             return collect($outgoing->toArray()) // 🔥 RETURN is required here
+                    //                 ->except(['id', 'file_location'])
+                    //                 ->merge([
+                    //                     'status' => 'under_review',
+                    //                     'created_at' => now(),
+                    //                     'updated_at' => now(),
+                    //                 ])
+                    //                 ->toArray();
+                    //         })->toArray();
+                    //         Incoming::insert($incomingData);
+                    //     })->after(function () {
+                    //         Notification::make('Files Dispatched')
+                    //             ->title('Files Dispatched')
+                    //             ->body('The selected files have been successfully dispatched to the actioner.')
+                    //             ->success()
+                    //             ->send();
+                    //     })
+                    //     ->requiresConfirmation()
+                    //     ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
+                    //     ->deselectRecordsAfterCompletion(),
 
                     ExportBulkAction::make()
                         ->color('primary')
@@ -252,7 +254,9 @@ class OutgoingResource extends Resource
                 $q->where('status', '!=', 'draft');
             });
         if (Auth::check() && Auth::user()->hasRole('actioner')) {
-            $query->where(['file_location' => 'actioner']);
+            $query->whereHas('submittel', function ($q) {
+                $q->where('sent_to_actioner', '=', 1);
+            });
         }
         if (Auth::check() && Auth::user()->hasRole('editor')) {
             $query->where('submitted_by', Auth::id());

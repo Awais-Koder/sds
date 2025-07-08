@@ -17,15 +17,15 @@ class ListIncomings extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
-            ExportAction::make('Export')
-            ->label('Export')
-            ->color('success')
-            ->icon('heroicon-o-arrow-down-tray')
-                ->exporter(IncomingExporter::class)
-            ->formats([
-                ExportFormat::Xlsx,
-                ExportFormat::Csv,
-            ])
+            // ExportAction::make('Export')
+            // ->label('Export')
+            // ->color('success')
+            // ->icon('heroicon-o-arrow-down-tray')
+            //     ->exporter(IncomingExporter::class)
+            // ->formats([
+            //     ExportFormat::Xlsx,
+            //     ExportFormat::Csv,
+            // ])
         ];
     }
 }
