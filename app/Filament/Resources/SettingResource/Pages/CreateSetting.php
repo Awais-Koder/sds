@@ -12,8 +12,11 @@ class CreateSetting extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        if(filled($data['pdf_images'])){
-            $data['pdf_images'] = json_encode($data['pdf_images']);
+        if (!empty($data['pdf_images'])) {
+            $data['pdf_images'] = json_encode($data['pdf_images'] ?? []);
+        } else {
+            // otherwise remove it entirely so Eloquent doesn't try to use null
+            unset($data['pdf_images']);
         }
         return $data;
     }
