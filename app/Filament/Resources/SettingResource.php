@@ -60,8 +60,7 @@ class SettingResource extends Resource
                     ->panelLayout('grid')
                     ->image(),
                 RichEditor::make('project_name')
-                    ->placeholder('Project Name')
-                    ->maxLength(255),
+                    ->placeholder('Project Name'),
             ]);
     }
 

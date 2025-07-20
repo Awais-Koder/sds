@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('settings', function (Blueprint $table) {
+            $table->text('project_name')->change();
+        });
+        Schema::table('submittels', function (Blueprint $table) {
+            $table->string('submittel_file')->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('settings', function (Blueprint $table) {
+            $table->string('project_name')->change();
+        });
+        Schema::table('submittels', function (Blueprint $table) {
+            $table->dropColumn('submittel_file');
+        });
+    }
+};

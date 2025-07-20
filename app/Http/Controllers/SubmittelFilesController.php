@@ -13,7 +13,7 @@ class SubmittelFilesController extends Controller
     {
         $submittel = Submittel::with('outgoings')->findOrFail($id);
 
-        $zipFileName = 'submittel-files-' . $submittel->ref_no . '.zip';
+        $zipFileName = $submittel->ref_no . '.zip';
         $zipFilePath = storage_path('app/public/' . $zipFileName);
 
         $zip = new ZipArchive;
@@ -36,6 +36,15 @@ class SubmittelFilesController extends Controller
                 if (file_exists($softCopyPath)) {
                     // Optional: rename inside ZIP to make it clear
                     $zip->addFile($softCopyPath, 'soft-copy/' . basename($submittel->soft_copy_file));
+                }
+            }
+            // 🔥 Add submittel if exists
+            if (!empty($submittel->submittel_file)) {
+                $submittelFile = Storage::disk('public')->path($submittel->submittel_file);
+
+                if (file_exists($submittelFile)) {
+                    // Optional: rename inside ZIP to make it clear
+                    $zip->addFile($submittelFile, 'submittel/' . basename($submittel->submittel_file));
                 }
             }
 

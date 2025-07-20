@@ -16,16 +16,16 @@ class ListIncomings extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
-            // ExportAction::make('Export')
-            // ->label('Export')
-            // ->color('success')
-            // ->icon('heroicon-o-arrow-down-tray')
-            //     ->exporter(IncomingExporter::class)
-            // ->formats([
-            //     ExportFormat::Xlsx,
-            //     ExportFormat::Csv,
-            // ])
+            // Actions\CreateAction::make(),
+            ExportAction::make('Report')
+                ->label('Report')
+                ->color('success')
+                ->icon('heroicon-o-arrow-down-tray')
+                ->exporter(IncomingExporter::class)
+                ->formats([
+                    ExportFormat::Xlsx,
+                    ExportFormat::Csv,
+                ])
         ];
     }
 }

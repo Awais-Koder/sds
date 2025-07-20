@@ -19,7 +19,7 @@ class ListSubmittels extends ListRecords
         return [
             Actions\CreateAction::make(),
             ExportAction::make('Export')
-            ->label('Export')
+            ->label('Report')
             ->color('success')
             ->icon('heroicon-o-arrow-down-tray')
                 ->exporter(SubmittelExporter::class)

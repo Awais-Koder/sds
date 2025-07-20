@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Exports\SubmittelFinalReportExporter;
 use App\Models\Submittel;
 use Filament\Pages\Page;
 use Filament\Tables\Table;
@@ -9,9 +10,11 @@ use Filament\Tables;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Concerns\InteractsWithTable;
 use App\Models\SubmittelFinalReport as SubmittelFinalReportModel;
+use Filament\Actions\Exports\Enums\ExportFormat;
 use Illuminate\Support\Facades\Storage;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Actions\ExportBulkAction;
 
 class SubmittelFinalReport extends Page implements HasTable
 {
@@ -51,6 +54,16 @@ class SubmittelFinalReport extends Page implements HasTable
                     }),
                 Tables\Columns\TextColumn::make('comments')
                     ->limit(50),
+            ])
+            ->bulkActions([
+                ExportBulkAction::make()
+                    ->label('Report')
+                    ->color('primary')
+                    ->exporter(SubmittelFinalReportExporter::class)
+                    ->formats([
+                        ExportFormat::Xlsx,
+                        ExportFormat::Csv,
+                    ]),
             ])
             ->filters([
                 Filter::make('created_at_range')

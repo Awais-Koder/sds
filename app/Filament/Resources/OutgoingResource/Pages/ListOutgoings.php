@@ -16,7 +16,7 @@ class ListOutgoings extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            // Actions\CreateAction::make(),
             ExportAction::make('Export')
             ->label('Export')
             ->color('success')

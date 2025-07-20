@@ -2,7 +2,9 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Exports\IncomingExporter;
 use App\Models\Submittel;
+use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Pages\Page;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -11,8 +13,9 @@ use Filament\Tables;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms;
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Form;
+use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,11 +33,13 @@ class IncomingSubmittels extends Page implements HasTable, HasForms
         return $table
             ->query(Submittel::query()->where('sent_to_actioner', 1))
             ->columns([
-                Tables\Columns\TextColumn::make('ref_no'),
+                Tables\Columns\TextColumn::make('ref_no')->searchable(),
                 Tables\Columns\TextColumn::make('user.name')
+                ->searchable()
                     ->label('Submitted By'),
                 Tables\Columns\TextColumn::make('send_by_dc_to_actioner')
                     ->dateTime('d M Y, h:i A')
+                    ->searchable()
                     ->label('Received at'),
             ])
             ->actions([
@@ -47,6 +52,16 @@ class IncomingSubmittels extends Page implements HasTable, HasForms
                     ->icon('heroicon-o-document')
                     ->color('lime')
                     ->openUrlInNewTab(),
+            ])
+            ->bulkActions([
+                ExportBulkAction::make()
+                    ->label('Report')
+                    ->color('primary')
+                    ->exporter(IncomingExporter::class)
+                    ->formats([
+                        ExportFormat::Xlsx,
+                        ExportFormat::Csv,
+                    ]),
             ])
             ->filters([
                 Filter::make('send_by_dc_to_actioner_range')
@@ -65,8 +80,8 @@ class IncomingSubmittels extends Page implements HasTable, HasForms
                                 $data['until'],
                                 fn($query, $date) => $query->whereDate('created_at', '<=', $date)
                             );
-                    }),
-                ]);
+                    })
+            ]);
     }
     public function form(Form $form): Form
     {

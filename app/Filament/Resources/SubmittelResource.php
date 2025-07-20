@@ -24,6 +24,8 @@ use Filament\Tables\Actions\ActionGroup;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Filters\Filter;
 
 class SubmittelResource extends Resource
 {
@@ -124,15 +126,19 @@ class SubmittelResource extends Resource
                                     ];
                                 }
                             })->default('approved'),
-                        Forms\Components\Textarea::make('comments')
+                        // Forms\Components\Textarea::make('comments')
+                        //     ->reactive()
+                        //     ->placeholder('Enter comments here')
+                        //     ->rows(10),
+                        Forms\Components\FileUpload::make('submittel_file')
+                            ->label('Submittel File')
                             ->reactive()
-                            ->placeholder('Enter comments here')
-                            ->rows(10),
-                        Forms\Components\FileUpload::make('soft_copy_file')
-                            ->label('Soft Copy (zip or rar)')
-                            ->reactive()
-                            ->required(fn($get) => $get('soft_copy'))
-                            ->acceptedFileTypes(['application/zip', 'application/x-rar-compressed', '.zip', '.rar'])
+                            ->acceptedFileTypes([
+                                'application/pdf',
+                                'application/x-pdf',
+                                'application/octet-stream', // some scanners
+                                '.pdf'
+                            ])
                             ->preserveFilenames(),
                     ])
                     ->collapsible()
@@ -154,7 +160,12 @@ class SubmittelResource extends Resource
                                     ->imageEditor()
                                     ->required()
                                     ->preserveFilenames()
-                                    ->acceptedFileTypes(['application/pdf', 'image/*']), // 10 MB,
+                                    ->acceptedFileTypes([
+                                        'application/pdf',
+                                        'application/x-pdf',
+                                        'application/octet-stream', // some scanners
+                                        '.pdf'
+                                    ]),
                                 Forms\Components\TextInput::make('no_of_copies')
                                     ->placeholder('No of Copies')
                                     ->numeric()
@@ -216,6 +227,12 @@ class SubmittelResource extends Resource
                                 $data['status'] = 'submitted';
                                 return $data;
                             }),
+                        Forms\Components\FileUpload::make('soft_copy_file')
+                            ->label('Soft Copy (zip or rar)')
+                            ->reactive()
+                            ->required(fn($get) => $get('soft_copy'))
+                            ->acceptedFileTypes(['application/zip', 'application/x-rar-compressed', '.zip', '.rar'])
+                            ->preserveFilenames(),
                     ])
                     ->columnSpanFull()
                     ->collapsible()
@@ -275,7 +292,23 @@ class SubmittelResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Filter::make('send_by_dc_to_actioner_range')
+                    ->label("Received At")
+                    ->form([
+                        DatePicker::make('from')->label("From date"),
+                        DatePicker::make('until')->label("To date")
+                    ])
+                    ->query(function ($query, array $data) {
+                        return $query
+                            ->when(
+                                $data['from'],
+                                fn($query, $date) => $query->whereDate('created_at', '>=', $date)
+                            )
+                            ->when(
+                                $data['until'],
+                                fn($query, $date) => $query->whereDate('created_at', '<=', $date)
+                            );
+                    }),
             ])
             ->actions([
                 ActionGroup::make([
@@ -302,7 +335,7 @@ class SubmittelResource extends Resource
                     Tables\Actions\DeleteBulkAction::make()
                         ->visible(Auth::user()->hasRole(['super_admin', 'editor'])),
                     ExportBulkAction::make()
-                        ->label('Export')
+                        ->label('Report')
                         ->color('primary')
                         ->exporter(SubmittelExporter::class)
                         ->formats([

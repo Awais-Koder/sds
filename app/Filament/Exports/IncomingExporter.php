@@ -2,32 +2,23 @@
 
 namespace App\Filament\Exports;
 
-use App\Models\Incoming;
+use App\Models\Submittel;
 use Filament\Actions\Exports\ExportColumn;
 use Filament\Actions\Exports\Exporter;
 use Filament\Actions\Exports\Models\Export;
 
 class IncomingExporter extends Exporter
 {
-    protected static ?string $model = Incoming::class;
+    protected static ?string $model = Submittel::class;
 
     public static function getColumns(): array
     {
         return [
             ExportColumn::make('id')->label('ID'),
-            ExportColumn::make('category.name'),
-            ExportColumn::make('submittel.ref_no')
-            ->label('Submittel Ref No'),
-            ExportColumn::make('file'),
-            ExportColumn::make('sds_no'),
-            ExportColumn::make('dwg_no'),
-            ExportColumn::make('description'),
-            ExportColumn::make('cycle'),
-            ExportColumn::make('no_of_copies'),
-            ExportColumn::make('user.name'),
-            ExportColumn::make('submitted_time'),
-            ExportColumn::make('approved.name'),
-            ExportColumn::make('update_time'),
+            ExportColumn::make('ref_no'),
+            ExportColumn::make('send_by_dc_to_actioner')->label('Received at'),
+            ExportColumn::make('user.name')->label('Submitted By'),
+            
             ExportColumn::make('status'),
             ExportColumn::make('created_at')
                 ->formatStateUsing(fn ($state) => optional($state)->format('Y-m-d H:i')),
