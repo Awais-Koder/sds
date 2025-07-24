@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Exports\SubmittelExporter;
 use App\Filament\Resources\SubmittelResource\Pages;
 use App\Filament\Resources\SubmittelResource\RelationManagers;
+use App\Mail\SendNotificationMail;
 use App\Models\Submittel;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -16,6 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Repeater;
 use App\Models\Category;
+use App\Models\Email;
 use App\Models\Setting;
 use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Tables\Actions\ExportBulkAction;
@@ -26,6 +28,7 @@ use Illuminate\Support\Collection;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Filters\Filter;
+use Illuminate\Support\Facades\Mail;
 
 class SubmittelResource extends Resource
 {
@@ -342,52 +345,6 @@ class SubmittelResource extends Resource
                             ExportFormat::Xlsx,
                             ExportFormat::Csv,
                         ]),
-                    // Tables\Actions\BulkAction::make('send_by_dc_to_actioner')
-                    //     ->tooltip('Send To Actioner')
-                    //     ->label('Mark Date')
-                    //     ->color('success')
-                    //     ->icon('heroicon-o-check')
-                    //     ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
-                    //     ->requiresConfirmation()
-                    //     ->action(function (Collection $records) {
-                    //         foreach ($records as $record) {
-                    //             if (is_null($record->send_by_dc_to_actioner)) {
-                    //                 $record->update([
-                    //                     'send_by_dc_to_actioner' => now(),
-                    //                 ]);
-                    //             }
-                    //         }
-                    //     })
-                    //     ->after(function () {
-                    //         Notification::make('mark_date')
-                    //             ->title('Mark Date')
-                    //             ->body('Selected submittals have been updated with the dispatch time to the actioner.')
-                    //             ->success()
-                    //             ->send();
-                    //     }),
-                    // Tables\Actions\BulkAction::make('mark_by_actioner')
-                    //     ->tooltip('Mark By Actioner')
-                    //     ->label('Mark Date')
-                    //     ->color('teal')
-                    //     ->icon('heroicon-o-check')
-                    //     ->visible(fn() => Auth::user()->hasRole(['super_admin', 'actioner']))
-                    //     ->requiresConfirmation()
-                    //     ->action(function (Collection $records) {
-                    //         foreach ($records as $record) {
-                    //             if (is_null($record->mark_by_actioner)) {
-                    //                 $record->update([
-                    //                     'mark_by_actioner' => now(),
-                    //                 ]);
-                    //             }
-                    //         }
-                    //     })
-                    //     ->after(function () {
-                    //         Notification::make('mark_date')
-                    //             ->title('Mark Date')
-                    //             ->body('Selected submittals have been updated with the final decision.')
-                    //             ->success()
-                    //             ->send();
-                    //     })
 
                     Tables\Actions\BulkAction::make('sendToActioner')
                         ->label('Send To Actioner')
@@ -400,13 +357,21 @@ class SubmittelResource extends Resource
                                 'send_by_dc_to_actioner' => now(),
                             ]);
                         })
-                        ->after(function () {
+                        ->after(function (Collection $records) {
+                            // send emails
+                            foreach ($records as $submittel) {
+                                foreach (Email::all() as $email) {
+                                    Mail::to($email)->queue(new SendNotificationMail($submittel->ref_no));
+                                }
+                            }
+
                             Notification::make('Submittle(s) Dispatched')
                                 ->title('Submittle(s) Dispatched')
                                 ->body('The selected submittle(s) have been successfully dispatched to the actioner.')
                                 ->success()
                                 ->send();
                         })
+
                         ->requiresConfirmation()
                         ->visible(fn() => Auth::user()->hasRole(['super_admin', 'dc']))
                         ->deselectRecordsAfterCompletion(),

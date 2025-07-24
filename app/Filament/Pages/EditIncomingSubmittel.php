@@ -2,6 +2,8 @@
 
 namespace App\Filament\Pages;
 
+use App\Mail\SendActionerReplyMail;
+use App\Models\Email;
 use App\Models\Submittel;
 use App\Models\SubmittelFinalReport;
 use Filament\Pages\Page;
@@ -15,6 +17,7 @@ use Filament\Notifications\Notification;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class EditIncomingSubmittel extends Page implements HasForms
 {
@@ -79,7 +82,7 @@ class EditIncomingSubmittel extends Page implements HasForms
         return [
             Action::make('save')
                 ->label('Save')
-                ->visible(fn () => Auth::user()->hasRole(['actioner' , 'super_admin']))
+                ->visible(fn() => Auth::user()->hasRole(['actioner', 'super_admin']))
                 ->action('save'),
         ];
     }
@@ -109,6 +112,9 @@ class EditIncomingSubmittel extends Page implements HasForms
             'update_time' => now(),
             'mark_by_actioner' => now(),
         ]);
+        foreach (Email::all() as $email) {
+            Mail::to($email)->queue(new SendActionerReplyMail($submittel->ref_no));
+        }
         Notification::make()
             ->title('Saved Successfully')
             ->success()
