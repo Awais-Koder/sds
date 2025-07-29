@@ -235,12 +235,19 @@ class SubmittelResource extends Resource
                             ->reactive()
                             ->required(fn($get) => $get('soft_copy'))
                             ->acceptedFileTypes([
+                                // ZIP MIME types
                                 'application/zip',
                                 'application/x-zip-compressed',
                                 'application/octet-stream',
                                 'application/x-compressed',
                                 'multipart/x-zip',
+
+                                // RAR MIME types
+                                'application/x-rar-compressed',
+                                'application/vnd.rar',
+                                'application/x-rar',
                             ])
+
                             ->preserveFilenames(),
                     ])
                     ->columnSpanFull()
